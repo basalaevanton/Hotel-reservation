@@ -6,7 +6,6 @@ const Home: NextPage = () => {
     <div>
       <div
         style={{
-          color: 'black',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',

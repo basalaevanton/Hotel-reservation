@@ -1,36 +1,32 @@
 html,
 body {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 
-	color: var(--black);
-	background: var(--white);
+  color: var(--dark75);
+  background: var(--white);
 
-	font-family:
-		-apple-system,
-		BlinkMacSystemFont,
-		Segoe UI,
-		Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		Fira Sans,
-		Droid Sans,
-		Helvetica Neue,
-		sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 
-	color: inherit;
+  color: inherit;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-	--black: black;
-	--white: white;
+  --black: black;
+  --white: #ffffff;
+  --green: #6fcf97;
+  --purple: #bc9cff;
+  --dark5: #1f2041;
+  --dark25: #1f2041;
+  --dark50: #1f2041;
+  --dark75: #1f2041;
+  --dark100: #1f2041;
 }
