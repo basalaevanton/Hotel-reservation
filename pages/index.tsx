@@ -1,3 +1,4 @@
+import { Button } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
 
@@ -24,6 +25,14 @@ const Home: NextPage = () => {
         >
           <h1> NextJs app...</h1>
           <h2>Hello World!</h2>
+          <Button appearance="primary">click on me</Button>
+          <Button appearance="ghost">click on me</Button>
+          <Button border="primary">click on me</Button>
+          <Button border="ghost">click on me</Button>
+          <Button unactive>click on me</Button>
+          <Button appearance="primary" arrow="right">
+            click on me
+          </Button>
         </div>
       </div>
     </div>
