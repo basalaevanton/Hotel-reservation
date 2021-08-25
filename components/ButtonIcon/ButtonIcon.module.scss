@@ -1,70 +1,81 @@
 .button {
-  width: 40px;
-  height: 40px;
+	width: 40px;
+	height: 40px;
 
-  border: none;
-  border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.5s;
 
-  cursor: pointer;
-  transition: all 0.5s;
+	border: none;
+	border-radius: 10px;
 }
 
 .up {
-  background-image: linear-gradient(
-    to bottom,
-    #bc9cff 0%,
-    #8ba4f9 51%,
-    #ab83ff 100%
-  );
+	background-image:
+		linear-gradient(
+			to bottom,
+			#BC9CFF 0%,
+			#8BA4F9 51%,
+			#AB83FF 100%
+		);
 
-  background-size: auto 200%;
-  box-shadow: (0 4px 4px rgba(0, 0, 0, 0.25));
-  &:hover {
-    text-decoration: none;
+	background-size: auto 200%;
+	box-shadow: (0 4px 4px rgba(0, 0, 0, 0.25));
 
-    color: #fff;
-    background-position: bottom center; /* change the direction of the change here */
-  }
+	&:hover {
+		text-decoration: none;
+
+		color: #FFF;
+		background-position: bottom center; /* change the direction of the change here */
+	}
 }
+
 .pagination {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 
-  background-image: linear-gradient(
-    to bottom,
-    #6fcf97 0%,
-    #66d2ea 51%,
-    #6fcf97 100%
-  );
+	border-radius: 22px;
 
-  background-size: auto 200%;
-  border-radius: 22px;
-  &:hover {
-    text-decoration: none;
+	background-image:
+		linear-gradient(
+			to bottom,
+			#6FCF97 0%,
+			#66D2EA 51%,
+			#6FCF97 100%
+		);
 
-    color: #fff;
-    background-position: right center; /* change the direction of the change here */
-  }
+	background-size: auto 200%;
+
+	&:hover {
+		text-decoration: none;
+
+		color: #FFF;
+		background-position: right center; /* change the direction of the change here */
+	}
 }
 
 .like {
-  display: inline-flex;
-  width: 40px;
-  height: 20px;
-  border: 1px solid;
-  border-color: var(--purple);
-  color: var(--purple);
-  font-size: 10px;
-  line-height: 12px;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  &:hover {
-    border-color: var(--dark25);
-    color: var(--dark25);
-    background-color: var(--white);
-    & svg {
-      fill: var(--dark25);
-    }
-  }
+	display: inline-flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+
+	width: 40px;
+	height: 20px;
+
+	color: var(--purple);
+	border: 1px solid;
+	border-color: var(--purple);
+
+	font-size: 10px;
+	line-height: 12px;
+
+	&:hover {
+		color: var(--dark25);
+		border-color: var(--dark25);
+		background-color: var(--white);
+
+		& svg {
+			fill: var(--dark25);
+		}
+	}
 }
