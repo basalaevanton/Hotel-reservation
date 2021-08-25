@@ -1,4 +1,4 @@
-import { Button, Htag } from '../components';
+import { Button, Htag, P } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
 
@@ -36,6 +36,10 @@ const Home: NextPage = () => {
           <Htag tag="h1">This one is the sub-section or widget title </Htag>
           <Htag tag="h2">This one is the sub-section or widget title </Htag>
           <Htag tag="h3">This one is the sub-section or widget title </Htag>
+          <P>
+            This is the body text which is used for most of the design, like
+            paragraphs, lists, etc.
+          </P>
         </div>
       </div>
     </div>
