@@ -1,4 +1,4 @@
-import { Button } from '../components';
+import { Button, Htag } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
 
@@ -33,6 +33,9 @@ const Home: NextPage = () => {
           <Button appearance="primary" arrow="right">
             click on me
           </Button>
+          <Htag tag="h1">This one is the sub-section or widget title </Htag>
+          <Htag tag="h2">This one is the sub-section or widget title </Htag>
+          <Htag tag="h3">This one is the sub-section or widget title </Htag>
         </div>
       </div>
     </div>

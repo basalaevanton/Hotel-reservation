@@ -8,7 +8,7 @@ export interface ButtonProps
     >,
     'onAnimationStart' | 'onDragStart' | 'OnDragEnd' | 'onDrag' | 'ref'
   > {
-  children: ReactNode;
+  children?: ReactNode;
   appearance?: 'primary' | 'ghost';
   border?: 'primary' | 'ghost';
   arrow?: 'right' | 'none';

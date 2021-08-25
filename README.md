@@ -11,7 +11,8 @@
 - NextJs
 - TypeScript
 - ESLint, typescript-eslint [parser,strikethrough text eslint-plugin]
-- StyleLint to css [config-standard, order, order-config-standard]
+- SCSS для стилизации
+- StyleLint to css and scss [config-standard, order, order-config-standard]
 - Husky для StyleLint (автоматически прогоняет StyleLint перед комитом на GitHub)
 - Debug (npm run debug and press F5)
 - Axios для запросов на сервер
