@@ -6,5 +6,6 @@ export interface PtagProps
     HTMLParagraphElement
   > {
   size?: 's' | 'm' | 'l' | 'xl';
+  bold?: boolean;
   children: ReactNode;
 }

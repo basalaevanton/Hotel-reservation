@@ -5,6 +5,7 @@ import cn from 'classnames';
 
 export const P = ({
   size = 's',
+  bold,
   className,
   children,
   ...props
@@ -16,6 +17,7 @@ export const P = ({
         [styles.m]: size == 'm',
         [styles.l]: size == 'l',
         [styles.xl]: size == 'xl',
+        [styles.bold]: bold == true,
       })}
       {...props}
     >

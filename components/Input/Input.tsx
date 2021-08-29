@@ -1,6 +1,6 @@
 import { InputProps } from './Input.props';
 import styles from './Input.module.scss';
-import ArrowIcon from './arrow.svg'
+import ArrowIcon from './arrow.svg';
 
 import cn from 'classnames';
 import { ForwardedRef, forwardRef } from 'react';
@@ -19,7 +19,7 @@ export const Input = forwardRef(
           ref={ref}
           {...props}
         />
-        {arrow && <ArrowIcon className={styles.arrowIcon}/>}
+        {arrow && <ArrowIcon className={styles.arrowIcon} />}
         {error && <span className={styles.errorMessage}>{error.message}</span>}
       </div>
     );

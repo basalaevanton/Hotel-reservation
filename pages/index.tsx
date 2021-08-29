@@ -1,4 +1,4 @@
-import { Button, Htag, P, Input, ButtonIcon } from '../components';
+import { Button, Htag, P, Input, ButtonIcon, TagIcon } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
 
@@ -44,9 +44,11 @@ const Home: NextPage = () => {
             <Input placeholder="Email" arrow="right" />
             <Input type="date" placeholder="Email" />
             <ButtonIcon icon="up" />
-            <ButtonIcon icon="like" >12</ButtonIcon>
-            <ButtonIcon icon='arrow' />
-          
+            <ButtonIcon icon="like">12</ButtonIcon>
+            <ButtonIcon icon="arrow" />
+            <TagIcon appearance="comfort" />
+            <TagIcon appearance="convenience" />
+            <TagIcon appearance="cosiness" />
           </div>
         </div>
       </div>
