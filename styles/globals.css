@@ -1,35 +1,35 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 
-  color: var(--dark75);
-  background: var(--white);
+	color: var(--dark75);
+	background: var(--white);
 
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  line-height: 24px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	line-height: 24px;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 
-  color: inherit;
+	color: inherit;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 :root {
-  --black: black;
-  --white: #fff;
-  --green: #6fcf97;
-  --purple: #bc9cff;
-  --dark5: rgba(31, 32, 65, 0.05);
-  --dark10: rgba(31, 32, 65, 0.1);
-  --dark25: rgba(31, 32, 65, 0.25);
-  --dark50: rgba(31, 32, 65, 0.5);
-  --dark75: rgba(31, 32, 65, 0.75);
-  --dark100: #1f2041;
+	--black: black;
+	--white: #FFF;
+	--green: #6FCF97;
+	--purple: #BC9CFF;
+	--dark5: rgba(31, 32, 65, 0.05);
+	--dark10: rgba(31, 32, 65, 0.1);
+	--dark25: rgba(31, 32, 65, 0.25);
+	--dark50: rgba(31, 32, 65, 0.5);
+	--dark75: rgba(31, 32, 65, 0.75);
+	--dark100: #1F2041;
 }
