@@ -1,8 +1,18 @@
-import { Button, Htag, P, Input, ButtonIcon, TagIcon } from '../components';
+import {
+  Button,
+  Htag,
+  P,
+  Input,
+  ButtonIcon,
+  TagIcon,
+  Rating,
+} from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
+import { useState } from 'react';
 
 const Home: NextPage = () => {
+  const [rating, setRating] = useState<number>(3);
   return (
     <>
       <div>
@@ -49,6 +59,7 @@ const Home: NextPage = () => {
             <TagIcon appearance="comfort" />
             <TagIcon appearance="convenience" />
             <TagIcon appearance="cosiness" />
+            <Rating isEditable rating={rating} setRating={setRating} />
           </div>
         </div>
       </div>
