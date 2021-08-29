@@ -23,7 +23,7 @@
     "*.{ts,tsx}": [
       "eslint --fix"
     ],
-    "*.scss": [
+    "*{.scss,.css}": [
       "stylelint --fix"
     ]
   },
