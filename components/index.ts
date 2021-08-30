@@ -7,3 +7,4 @@ export * from './TagIcon/TagIcon';
 export * from './Divider/Divider';
 export * from './Rating/Rating';
 export * from './Checkbox/Checkbox';
+export * from './RadioInput/RadioInput';

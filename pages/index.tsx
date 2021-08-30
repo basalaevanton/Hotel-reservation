@@ -7,13 +7,24 @@ import {
   TagIcon,
   Rating,
   Checkbox,
+  RadioInput,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
 import { useState } from 'react';
 
 const Home: NextPage = () => {
+  // rating
   const [rating, setRating] = useState<number>(3);
+  //
+
+  // radioInput
+  const [selectedInput, setSelectedInput] = useState('');
+
+  const handleChange = (e: string) => {
+    setSelectedInput(e);
+  };
+  //
 
   return (
     <>
@@ -67,6 +78,20 @@ const Home: NextPage = () => {
               label="Широкий коридор"
               info="Ширина коридоров в номере не менее 91 см."
             />
+            <div>
+              <RadioInput
+                name="gender"
+                label="Мужчина"
+                isChecked={selectedInput === 'Мужчина'}
+                handleChange={handleChange}
+              />
+              <RadioInput
+                name="gender"
+                label="Женщина"
+                isChecked={selectedInput === 'Женщина'}
+                handleChange={handleChange}
+              />
+            </div>
           </div>
         </div>
       </div>
