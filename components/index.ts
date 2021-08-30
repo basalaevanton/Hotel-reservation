@@ -6,3 +6,4 @@ export * from './ButtonIcon/ButtonIcon';
 export * from './TagIcon/TagIcon';
 export * from './Divider/Divider';
 export * from './Rating/Rating';
+export * from './Checkbox/Checkbox';

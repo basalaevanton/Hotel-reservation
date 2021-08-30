@@ -5,7 +5,7 @@ export interface PtagProps
     HTMLAttributes<HTMLParagraphElement>,
     HTMLParagraphElement
   > {
-  size?: 's' | 'm' | 'l' | 'xl';
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   bold?: boolean;
   children: ReactNode;
 }

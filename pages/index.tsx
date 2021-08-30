@@ -6,6 +6,7 @@ import {
   ButtonIcon,
   TagIcon,
   Rating,
+  Checkbox,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -13,6 +14,7 @@ import { useState } from 'react';
 
 const Home: NextPage = () => {
   const [rating, setRating] = useState<number>(3);
+
   return (
     <>
       <div>
@@ -60,6 +62,11 @@ const Home: NextPage = () => {
             <TagIcon appearance="convenience" />
             <TagIcon appearance="cosiness" />
             <Rating isEditable rating={rating} setRating={setRating} />
+            <Checkbox label="checkbox" />
+            <Checkbox
+              label="Широкий коридор"
+              info="Ширина коридоров в номере не менее 91 см."
+            />
           </div>
         </div>
       </div>

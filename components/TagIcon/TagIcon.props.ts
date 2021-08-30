@@ -4,7 +4,12 @@ import comfort from './comfort.svg';
 import convenience from './convenience.svg';
 import cosiness from './cosiness.svg';
 
-
+ interface info {
+  name: string;
+  title: string;
+  description: string;
+  rating: number;
+}
 
 export const info = {
   comfort: {

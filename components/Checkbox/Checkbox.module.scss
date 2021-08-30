@@ -1,0 +1,102 @@
+.checkbox {
+	position: relative;
+
+	display: inline-flex;
+	align-items: center;
+}
+
+.label {
+	padding-left: 33px;
+
+	cursor: pointer;
+
+	color: var(--dark50);
+
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.checkbox input {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 20px;
+	height: 20px;
+
+	opacity: 0;
+}
+
+.checkbox input + label::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 18px;
+	height: 18px;
+
+	content: '';
+	transition: all 0.5s;
+
+	border: 1px solid;
+	border-color: var(--dark25);
+	border-radius: 4px;
+}
+
+.checkbox input:hover + label::before {
+	border-color: var(--purple);
+}
+
+/* svg background styles */
+.checkbox input + label::after {
+	position: absolute;
+	top: 3px;
+	left: 2px;
+
+	width: 20px;
+	height: 20px;
+
+	content: '';
+	transition: opacity 0.5s ease-in-out;
+
+	opacity: 0;
+
+	background-image: url('/img/icons/checkboxIcon.svg');
+
+	background-repeat: no-repeat;
+}
+
+/* reveal check for 'on' state */
+.checkbox input:checked + label::after {
+	opacity: 1;
+}
+
+.checkbox input:checked + label::before {
+	border: 1px solid;
+	border-color: var(--purple);
+}
+
+/* focus styles */
+.checkbox input:focus + label::before {
+	outline: 2px solid black;
+}
+
+// checkbox Info
+
+.labelInfo {
+	display: inline-flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+	padding-left: 30px;
+
+	cursor: pointer;
+
+	color: var(--dark75);
+
+	font-weight: bold;
+}
+
+.info {
+	color: var(--dark50);
+}
