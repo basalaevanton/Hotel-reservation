@@ -8,6 +8,7 @@ import {
   Rating,
   Checkbox,
   RadioInput,
+  Switch,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -23,6 +24,13 @@ const Home: NextPage = () => {
 
   const handleChange = (e: string) => {
     setSelectedInput(e);
+  };
+  //
+
+  // Switch Button
+  const [toggle, setToggle] = useState(false);
+  const switchChange = () => {
+    setToggle(!toggle);
   };
   //
 
@@ -92,6 +100,11 @@ const Home: NextPage = () => {
                 handleChange={handleChange}
               />
             </div>
+            <Switch
+              label="Получать спецпредложения"
+              isChecked={toggle}
+              handleToggle={switchChange}
+            />
           </div>
         </div>
       </div>
