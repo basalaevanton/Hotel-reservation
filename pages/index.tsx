@@ -9,6 +9,7 @@ import {
   Checkbox,
   RadioInput,
   Switch,
+  RangeInput,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -20,7 +21,7 @@ const Home: NextPage = () => {
   //
 
   // radioInput
-  const [selectedInput, setSelectedInput] = useState('');
+  const [selectedInput, setSelectedInput] = useState<string>('');
 
   const handleChange = (e: string) => {
     setSelectedInput(e);
@@ -28,10 +29,14 @@ const Home: NextPage = () => {
   //
 
   // Switch Button
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState<boolean>(false);
   const switchChange = () => {
     setToggle(!toggle);
   };
+  //
+
+  // Range Input
+
   //
 
   return (
@@ -104,6 +109,13 @@ const Home: NextPage = () => {
               label="Получать спецпредложения"
               isChecked={toggle}
               handleToggle={switchChange}
+            />
+            <RangeInput
+              min={0}
+              max={500}
+              onChange={({ min, max }: { min: number; max: number }) =>
+                console.log(`min = ${min}, max = ${max}`)
+              }
             />
           </div>
         </div>
