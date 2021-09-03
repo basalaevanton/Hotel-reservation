@@ -11,3 +11,5 @@ export * from './RadioInput/RadioInput';
 export * from './Switch/Switch';
 export * from './RangeInput/RangeInput';
 export * from './Accordion/Accordion';
+export * from './Dropdown/Dropdown';
+

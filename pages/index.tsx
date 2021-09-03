@@ -11,6 +11,7 @@ import {
   Switch,
   RangeInput,
   Accordion,
+  Dropdown,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -113,6 +114,7 @@ const Home: NextPage = () => {
               isChecked={toggle}
               handleToggle={switchChange}
             />
+
             <Accordion title="Title">
               <Checkbox label="checkbox1" />
               <Checkbox label="checkbox2" />
@@ -127,6 +129,10 @@ const Home: NextPage = () => {
                 console.log(`min = ${min}, max = ${max}`)
               }
             />
+            <div style={{ width: '300px' }}>
+              <Dropdown title="room" />
+              <Dropdown title="guest" />
+            </div>
           </div>
         </div>
       </div>

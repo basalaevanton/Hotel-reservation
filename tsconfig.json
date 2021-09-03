@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    // без файлов js
-    "allowJs": false,
+    // с файлов js
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     // необезательно инитт. свойстово класса
@@ -21,6 +21,6 @@
       "*": ["types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "components/Dropdown/Dropdown.jsx"],
   "exclude": ["node_modules"]
 }

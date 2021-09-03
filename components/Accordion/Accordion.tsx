@@ -18,7 +18,7 @@ export const Accordion = ({
 
   const variants = {
     visible: { opacity: 1, height: 'auto' },
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, height: 0, },
   };
   return (
     <div className={cn(styles.accordion, className)} {...props}>

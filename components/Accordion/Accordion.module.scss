@@ -1,32 +1,36 @@
 .accordion {
-  display: flex;
-  flex-direction: column;
-  
+	display: flex;
+	flex-direction: column;
 }
+
 .accordionTitle {
-  display: inline-flex;
-  align-items: center;
+	display: inline-flex;
 
-  cursor: pointer;
+	overflow: hidden;
+	align-items: center;
 
-  overflow: hidden;
-  margin-bottom: 10px;
+	margin-bottom: 10px;
+
+	cursor: pointer;
 }
+
 .children {
-  display: flex;
-  flex-direction: column;
-  // padding-top: 10px;
-  // margin-bottom: 15px;
- 
+	display: flex;
+	flex-direction: column;
+	// padding-top: 10px;
+	// margin-bottom: 15px;
 }
+
 .Htag {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .arrowIcon {
-  transition: all 0.5s;
-  margin-left: 45px;
+	margin-left: 45px;
+
+	transition: all 0.5s;
 }
+
 .arrowIconDown {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
