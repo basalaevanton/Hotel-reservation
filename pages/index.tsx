@@ -10,6 +10,7 @@ import {
   RadioInput,
   Switch,
   RangeInput,
+  Accordion,
 } from '../components';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -49,7 +50,8 @@ const Home: NextPage = () => {
             alignItems: 'center',
             textAlign: 'center',
             width: '100%',
-            height: '100vh',
+            height: '100%',
+            // height: '100vh',
           }}
         >
           <div
@@ -60,8 +62,10 @@ const Home: NextPage = () => {
               borderRadius: '5px',
             }}
           >
-            <h1> NextJs app...</h1>
-            <h2>Hello World!</h2>
+            <Accordion title="Title">
+              <h1> NextJs app...</h1>
+              <h2>Hello World!</h2>
+            </Accordion>
             <Button appearance="primary">click on me</Button>
             <Button appearance="ghost">click on me</Button>
             <Button border="primary">click on me</Button>
@@ -91,25 +95,31 @@ const Home: NextPage = () => {
               label="Широкий коридор"
               info="Ширина коридоров в номере не менее 91 см."
             />
-            <div>
-              <RadioInput
-                name="gender"
-                label="Мужчина"
-                isChecked={selectedInput === 'Мужчина'}
-                handleChange={handleChange}
-              />
-              <RadioInput
-                name="gender"
-                label="Женщина"
-                isChecked={selectedInput === 'Женщина'}
-                handleChange={handleChange}
-              />
-            </div>
+
+            <RadioInput
+              name="gender"
+              label="Мужчина"
+              isChecked={selectedInput === 'Мужчина'}
+              handleChange={handleChange}
+            />
+            <RadioInput
+              name="gender"
+              label="Женщина"
+              isChecked={selectedInput === 'Женщина'}
+              handleChange={handleChange}
+            />
             <Switch
               label="Получать спецпредложения"
               isChecked={toggle}
               handleToggle={switchChange}
             />
+            <Accordion title="Title">
+              <Checkbox label="checkbox1" />
+              <Checkbox label="checkbox2" />
+              <Checkbox label="checkbox3" />
+              <Checkbox label="checkbox4" />
+              <Checkbox label="checkbox5" />
+            </Accordion>
             <RangeInput
               min={0}
               max={500}

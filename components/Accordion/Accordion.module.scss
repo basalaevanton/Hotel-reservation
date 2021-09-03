@@ -1,0 +1,32 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  
+}
+.accordionTitle {
+  display: inline-flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.children {
+  display: flex;
+  flex-direction: column;
+  // padding-top: 10px;
+  // margin-bottom: 15px;
+ 
+}
+.Htag {
+  text-transform: uppercase;
+}
+
+.arrowIcon {
+  transition: all 0.5s;
+  margin-left: 45px;
+}
+.arrowIconDown {
+  transform: rotate(180deg);
+}
