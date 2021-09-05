@@ -66,8 +66,9 @@ export const Dropdown = ({ title, ...props }) => {
     });
   };
 
-  const hanleSpace = (e) => {
-    if (e.code === 'Space') {
+  const hanleSpace = (key) => {
+    if (key.code === 'Space') {
+      key.preventDefault();
       setIsAccordionOpened(!isAccordionOpened);
     }
   };
@@ -78,7 +79,7 @@ export const Dropdown = ({ title, ...props }) => {
         className={styles.dropdownTitle}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
         tabIndex={0}
-        onKeyDown={(e) => hanleSpace(e)}
+        onKeyDown={(key) => hanleSpace(key)}
       >
         {title === 'guest' ? (
           <P> Сколько гостей:</P>

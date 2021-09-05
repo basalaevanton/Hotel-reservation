@@ -15,8 +15,13 @@
 }
 
 .children {
+	position: absolute;
+	z-index: 10;
+
 	display: flex;
-	flex-direction: column;
+
+	margin-top: 35px;
+
 	// padding-top: 10px;
 	// margin-bottom: 15px;
 }
@@ -26,6 +31,12 @@
 }
 
 .arrowIcon {
+	margin-left: 8px;
+
+	transition: all 0.5s;
+}
+
+.arrowIconSearch {
 	margin-left: 45px;
 
 	transition: all 0.5s;

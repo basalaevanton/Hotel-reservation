@@ -1,87 +1,87 @@
 .dropdown {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  border: 1px solid var(--dark50);
-  border-radius: 2px;
+	border: 1px solid var(--dark50);
+	border-radius: 2px;
 }
 
 .dropdownTitle {
-  display: flex;
+	display: flex;
 
-  overflow: hidden;
+	overflow: hidden;
 
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+	justify-content: space-between;
 
-  padding: 10px 15px;
+	padding: 10px 15px;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  border-bottom: 1px solid var(--dark50);
+	border-bottom: 1px solid var(--dark50);
 }
 
 .p {
-  overflow: hidden;
+	overflow: hidden;
 
-  white-space: nowrap;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .counters {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .counterBlock {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
 
-  padding: 8px 6px 0 15px;
+	padding: 8px 6px 0 15px;
 
-  &:first-child {
-    padding-top: 15px;
-  }
+	&:first-child {
+		padding-top: 15px;
+	}
 }
 
 .counter {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .value {
-  padding-right: 12px;
-  padding-left: 12px;
+	padding-right: 12px;
+	padding-left: 12px;
 }
 
 .button {
-  width: 30px;
-  height: 30px;
+	width: 30px;
+	height: 30px;
 
-  cursor: pointer;
+	cursor: pointer;
 
-  color: var(--dark50);
-  border: 1px solid var(--dark25);
-  border-radius: 22px;
-  background-color: var(--white);
+	color: var(--dark50);
+	border: 1px solid var(--dark25);
+	border-radius: 22px;
+	background-color: var(--white);
 
-  font-size: 18px;
-  line-height: 22px;
+	font-size: 18px;
+	line-height: 22px;
 }
 
 .Htag {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .arrowIcon {
-  width: 15px;
+	width: 15px;
 
-  transition: all 0.5s;
+	transition: all 0.5s;
 }
 
 .arrowIconDown {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }

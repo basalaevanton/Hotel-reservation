@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 
 export const Accordion = ({
   title,
+  accordionSearch,
   children,
   className,
   ...props
@@ -17,6 +18,22 @@ export const Accordion = ({
   const [isAccordionOpened, setIsAccordionOpened] = useState<boolean>(false);
 
   const variants = {
+    visible: {
+      opacity: 1,
+      // height: 'auto',
+      display: 'flex',
+    },
+    hidden: {
+      opacity: 0,
+
+      // height: 0,
+      transitionEnd: {
+        display: 'none',
+      },
+    },
+  };
+
+  const searchVariants = {
     visible: {
       opacity: 1,
       height: 'auto',
@@ -31,8 +48,9 @@ export const Accordion = ({
     },
   };
 
-  const hanleSpace = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.code === 'Space') {
+  const hanleSpace = (key: KeyboardEvent<HTMLDivElement>) => {
+    if (key.code === 'Space') {
+      key.preventDefault();
       setIsAccordionOpened(!isAccordionOpened);
     }
   };
@@ -43,7 +61,7 @@ export const Accordion = ({
         className={styles.accordionTitle}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
         tabIndex={0}
-        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => hanleSpace(e)}
+        onKeyDown={(key: KeyboardEvent<HTMLDivElement>) => hanleSpace(key)}
       >
         <Htag className={styles.Htag} tag="h3">
           {title}
@@ -52,6 +70,7 @@ export const Accordion = ({
         <ArrowIcon
           className={cn(styles.arrowIcon, {
             [styles.arrowIconDown]: isAccordionOpened == true,
+            [styles.arrowIconSearch]: accordionSearch == true,
           })}
         />
       </div>
