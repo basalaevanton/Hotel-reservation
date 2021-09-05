@@ -24,8 +24,8 @@ export const Dropdown = ({ title, ...props }) => {
   });
 
   const variants = {
-    visible: { opacity: 1, height: 'auto' },
-    hidden: { opacity: 0, height: 0 },
+    visible: { opacity: 1, height: 'auto', visibility: 'visible' },
+    hidden: { opacity: 0, height: 0, visibility: 'hidden' },
   };
 
   const incrementRoom = (event) => {
@@ -56,11 +56,19 @@ export const Dropdown = ({ title, ...props }) => {
     });
   };
 
+  const hanleSpace = (e) => {
+    if (e.code === 'Space') {
+      setIsAccordionOpened(!isAccordionOpened);
+    }
+  };
+
   return (
     <div className={cn(styles.dropdown)} {...props}>
       <div
         className={styles.dropdownTitle}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
+        tabIndex={0}
+        onKeyDown={(e) => hanleSpace(e)}
       >
         {title === 'guest' ? (
           <P> Сколько гостей:</P>

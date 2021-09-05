@@ -4,7 +4,7 @@ import ArrowIcon from './arrow.svg';
 import { Htag } from '../../components';
 
 import cn from 'classnames';
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -17,14 +17,31 @@ export const Accordion = ({
   const [isAccordionOpened, setIsAccordionOpened] = useState<boolean>(false);
 
   const variants = {
-    visible: { opacity: 1, height: 'auto' },
-    hidden: { opacity: 0, height: 0, },
+    visible: {
+      opacity: 1,
+      height: 'auto',
+      display: 'flex',
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+      display: 'none',
+    },
   };
+
+  const hanleSpace = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.code === 'Space') {
+      setIsAccordionOpened(!isAccordionOpened);
+    }
+  };
+
   return (
     <div className={cn(styles.accordion, className)} {...props}>
       <div
         className={styles.accordionTitle}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
+        tabIndex={0}
+        onKeyDown={(e: KeyboardEvent<HTMLDivElement>) => hanleSpace(e)}
       >
         <Htag className={styles.Htag} tag="h3">
           {title}
