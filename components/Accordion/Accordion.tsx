@@ -25,7 +25,9 @@ export const Accordion = ({
     hidden: {
       opacity: 0,
       height: 0,
-      display: 'none',
+      transitionEnd: {
+        display: 'none',
+      },
     },
   };
 

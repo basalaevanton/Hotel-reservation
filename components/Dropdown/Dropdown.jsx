@@ -24,8 +24,18 @@ export const Dropdown = ({ title, ...props }) => {
   });
 
   const variants = {
-    visible: { opacity: 1, height: 'auto', visibility: 'visible' },
-    hidden: { opacity: 0, height: 0, visibility: 'hidden' },
+    visible: {
+      opacity: 1,
+      height: 'auto',
+      display: 'block',
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+      transitionEnd: {
+        display: 'none',
+      },
+    },
   };
 
   const incrementRoom = (event) => {
