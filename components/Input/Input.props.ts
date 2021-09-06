@@ -7,5 +7,5 @@ export interface InputProps
     HTMLInputElement
   > {
   error?: FieldError;
-  arrow?: 'right';
+  arrow?: boolean;
 }

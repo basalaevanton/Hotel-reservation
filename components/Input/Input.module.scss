@@ -4,11 +4,9 @@
 	display: initial;
 }
 
-.input input {
-	width: 100%;
-}
-
 .input {
+	width: 100%;
+
 	padding: 13px 15px;
 
 	padding-right: 30px;
@@ -45,22 +43,22 @@
 
 .arrowIcon {
 	position: absolute;
-	top: 1px;
-	right: 10px;
+	top: -10px;
+	right: 0;
 
 	cursor: pointer;
 }
 
 .error {
-	border: 1px solid var(--red);
+	border: 1px solid var(--error);
 }
 
 .errorMessage {
 	position: absolute;
-	bottom: -20px;
+	bottom: -35px;
 	left: 0;
 
-	color: var(--red);
+	color: var(--error);
 
 	font-weight: bold;
 }

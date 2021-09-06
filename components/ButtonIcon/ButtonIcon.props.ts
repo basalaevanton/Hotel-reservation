@@ -5,6 +5,8 @@ import arrow from './arrow.svg';
 import like from './like.svg';
 import close from './close.svg';
 import menu from './menu.svg';
+import inputArrow from './inputArrow.svg';
+
 
 export const icons = {
   up,
@@ -12,6 +14,7 @@ export const icons = {
   like,
   close,
   menu,
+  inputArrow
 };
 
 export type IconName = keyof typeof icons;

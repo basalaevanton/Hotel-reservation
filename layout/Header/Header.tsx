@@ -1,6 +1,6 @@
 import { HeaderProps } from './Header.props';
 import styles from './Header.module.scss';
-import Logo from './logo.svg';
+import Logo from '../logo.svg';
 
 import cn from 'classnames';
 
@@ -58,7 +58,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         </a>
       </Link>
 
-      <motion.div
+      <motion.nav
         className={cn(styles.mobileMenu, {
           // [styles.open]: isOpened,
         })}
@@ -67,7 +67,7 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         animate={isOpened ? 'opened' : 'closed'}
       >
         <HeaderMenu />
-      </motion.div>
+      </motion.nav>
 
       {isOpened ? (
         <ButtonIcon

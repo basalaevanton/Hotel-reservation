@@ -25,12 +25,15 @@ a {
 
 ul {
 	padding-inline-start: 0;
+
+	margin: 0;
 }
 
 :root {
 	--black: black;
 	--white: #FFF;
 	--green: #6FCF97;
+	--green-light: #95FFC1;
 	--purple: #BC9CFF;
 	--dark5: rgba(31, 32, 65, 0.05);
 	--dark10: rgba(31, 32, 65, 0.1);
@@ -38,4 +41,5 @@ ul {
 	--dark50: rgba(31, 32, 65, 0.5);
 	--dark75: rgba(31, 32, 65, 0.75);
 	--dark100: #1F2041;
+	--error: rgb(238, 67, 0);
 }

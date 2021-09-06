@@ -79,7 +79,7 @@ const Home: NextPage = () => {
           This is the body text which is used for most of the design, like
           paragraphs, lists, etc.
         </P>
-        <Input placeholder="Email" arrow="right" />
+        <Input placeholder="Email" arrow />
         <Input type="date" placeholder="Email" />
         <ButtonIcon icon="up" />
         <ButtonIcon icon="like">12</ButtonIcon>

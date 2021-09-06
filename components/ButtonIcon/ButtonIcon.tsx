@@ -18,6 +18,7 @@ export const ButtonIcon = ({
         [styles.up]: icon == 'up',
         [styles.menu]: icon == 'menu',
         [styles.close]: icon == 'close',
+        [styles.inputArrow]: icon == 'inputArrow',
       })}
       {...props}
     >

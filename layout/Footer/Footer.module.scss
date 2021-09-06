@@ -1,3 +1,200 @@
 .footer {
 	display: flex;
+	flex-direction: column;
+}
+
+.footerNav {
+	display: grid;
+	justify-content: space-between;
+
+	margin: 80px 0;
+	grid-template-columns: 260px 145px 110px 150px 260px;
+
+	grid-template-areas: 'hotelTitle navigation about support suscription';
+}
+
+.hotelTitle {
+	grid-area: hotelTitle;
+}
+
+.navigation {
+	grid-area: navigation;
+}
+
+.about {
+	grid-area: about;
+}
+
+.support {
+	grid-area: support;
+}
+
+.suscription {
+	grid-area: suscription;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.logo {
+	margin-bottom: 20px;
+
+	transition: all 0.5s;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.navigation,
+.about,
+.support {
+	li {
+		margin-bottom: 20px;
+
+		color: var(--dark50);
+
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
+
+.link {
+	transition: all 0.25s;
+
+	&:hover {
+		transform: scale(1.1);
+
+		color: var(--purple);
+	}
+}
+
+.copyright {
+	display: flex;
+	justify-content: space-between;
+
+	margin: 0 20px;
+}
+
+.socialLinks {
+	a {
+		margin-left: 20px;
+
+		&:hover svg {
+			transition: all 0.5s;
+			transform: scale(1.1);
+		}
+	}
+}
+
+.success {
+	position: relative;
+
+	width: 100%;
+	margin-top: 5px;
+
+	border-radius: 15px;
+	background-color: var(--green-light);
+}
+
+.successTitle {
+	font-weight: bold;
+}
+
+.successIcon {
+	margin-left: 10px;
+
+	cursor: pointer;
+}
+
+@media (max-width: 1020px) {
+	.footerNav {
+		grid-template-columns: auto auto auto auto;
+		gap: 30px 40px;
+		grid-template-areas:
+			'hotelTitle navigation about support'
+			'hotelTitle suscription suscription suscription';
+	}
+}
+
+@media (max-width: 680px) {
+	.footerNav {
+		display: grid;
+
+		grid-template-columns: auto auto;
+		gap: 30px 40px;
+		grid-template-areas: 'hotelTitle suscription ';
+	}
+
+	.navigation {
+		display: none;
+	}
+
+	.about {
+		display: none;
+	}
+
+	.support {
+		display: none;
+	}
+}
+
+@media (max-width: 580px) {
+	.footerNav {
+		display: grid;
+
+		grid-template-columns: auto;
+		gap: 30px 40px;
+		grid-template-areas:
+			'hotelTitle'
+			'suscription ';
+	}
+
+	.navigation {
+		display: none;
+	}
+
+	.about {
+		display: none;
+	}
+
+	.support {
+		display: none;
+	}
+
+	.copyright {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.socialLinks {
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 580px) {
+	.footerNav {
+		display: grid;
+
+		grid-template-columns: auto;
+
+		grid-template-areas: 'hotelTitle';
+
+		margin: 40px 10px;
+	}
+
+	.hotelTitle {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.suscription {
+		display: none;
+	}
 }
