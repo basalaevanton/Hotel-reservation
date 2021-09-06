@@ -1,72 +1,41 @@
 .header {
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	justify-content: space-between;
-	// ///////////////////////////////////////////////
-	border-radius: 15px;
-	box-shadow: 4px 5px 20px rgba(8, 15, 224, 0.15);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  ///////////////////////////////////////////////
+  border-radius: 15px;
+  box-shadow: 4px 5px 20px rgba(8, 15, 224, 0.15);
 }
 
 .logo {
-	margin-right: 10px;
+  margin-right: 10px;
 
-	transition: all 0.5s;
+  transition: all 0.5s;
 
-	&:hover {
-		transform: scale(1.15);
-	}
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 
-.menu {
-	display: flex;
-	align-items: baseline;
-
-	color: var(--dark50);
-
-	font-size: 14px;
-	line-height: 17px;
-
-	h3 {
-		transition: all 0.5s;
-		text-transform: capitalize;
-
-		color: var(--dark50);
-
-		font-size: 14px;
-		font-weight: normal;
-		line-height: 17px;
-	}
+.mobileMenu {
+  display: flex;
 }
 
-.menuItem {
-	padding-right: 20px;
-
-	transition: all 0.5s;
-
-	&:last-child {
-		padding-right: 0;
-	}
-
-	&:hover {
-		transform: scale(1.1);
-
-		color: var(--dark100);
-
-		h3 {
-			color: var(--dark100);
-		}
-	}
+.menuIcon {
+  display: none;
+}
+.menuClose {
+  display: none;
 }
 
-.accordionItem {
-	margin-bottom: 8px;
+@media (max-width: 910px) {
+  .header {
+    padding: 15px 15px 0 15px;
+  }
 
-	transition: all 0.5s;
-
-	&:hover {
-		transform: scale(1.1);
-
-		color: var(--dark100);
-	}
+  .menuIcon,
+  .menuClose {
+    display: block;
+  }
 }

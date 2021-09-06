@@ -16,6 +16,8 @@ export const ButtonIcon = ({
         [styles.like]: icon == 'like',
         [styles.pagination]: icon == 'arrow',
         [styles.up]: icon == 'up',
+        [styles.menu]: icon == 'menu',
+        [styles.close]: icon == 'close',
       })}
       {...props}
     >

@@ -6,14 +6,49 @@ import cn from 'classnames';
 
 import Link from 'next/link';
 
-import { ButtonIcon, Button, Accordion } from '../../components';
+import { ButtonIcon } from '../../components';
 import { motion } from 'framer-motion';
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+
+import { HeaderMenu } from './HeaderMenu/HeaderMenu';
+import { useIsMedium } from '../../hooks/mediaQueries';
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
-  const [user, setUser] = useState('');
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const isMedium = useIsMedium();
+
+  const variants = !isMedium
+    ? {
+        opened: {
+          opacity: 1,
+          height: 'auto',
+          x: 0,
+          transition: { stiffness: 20 },
+          display: 'flex',
+        },
+        closed: {
+          opacity: 1,
+          x: 0,
+        },
+      }
+    : {
+        opened: {
+          opacity: 1,
+          height: 'auto',
+          x: 0,
+          transition: { stiffness: 20 },
+          display: 'flex',
+        },
+        closed: {
+          opacity: 0,
+          height: 0,
+          x: '100%',
+          transitionEnd: {
+            display: 'none',
+          },
+        },
+      };
 
   return (
     <header className={cn(className, styles.header)} {...props}>
@@ -23,85 +58,30 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         </a>
       </Link>
 
-      <ul className={styles.menu}>
-        <li className={styles.menuItem}>
-          <Link href="/">
-            <a>О&nbsp;нас</a>
-          </Link>
-        </li>
-        <li className={styles.menuItem}>
-          <Accordion title="Услуги">
-            <ul>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Услуга 1</a>
-                </Link>
-              </li>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Услуга 2</a>
-                </Link>
-              </li>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Услуга 3</a>
-                </Link>
-              </li>
-            </ul>
-          </Accordion>
-        </li>
-        <li className={styles.menuItem}>
-          <Link href="/">
-            <a>Вакансии</a>
-          </Link>
-        </li>
-        <li className={styles.menuItem}>
-          <Link href="/">
-            <a>Новости</a>
-          </Link>
-        </li>
-        <li className={styles.menuItem}>
-          <Accordion title="Соглашения">
-            <ul>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Соглашениe 1</a>
-                </Link>
-              </li>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Соглашениe 2</a>
-                </Link>
-              </li>
-              <li className={styles.accordionItem}>
-                <Link href="/">
-                  <a>Соглашениe 3</a>
-                </Link>
-              </li>
-            </ul>
-          </Accordion>
-        </li>
-        {user ? (
-          <p className={styles.user}>{user}</p>
-        ) : (
-          <>
-            <li className={styles.menuItem}>
-              <Link href="/signIn">
-                <a>
-                  <Button border="primary">Войти</Button>
-                </a>
-              </Link>
-            </li>
-            <li className={styles.menuItem}>
-              <Link href="/registration">
-                <a>
-                  <Button appearance="primary">Зарегестрироваться</Button>
-                </a>
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
+      <motion.div
+        className={cn(styles.mobileMenu, {
+          // [styles.open]: isOpened,
+        })}
+        variants={variants}
+        initial={'opened'}
+        animate={isOpened ? 'opened' : 'closed'}
+      >
+        <HeaderMenu />
+      </motion.div>
+
+      {isOpened ? (
+        <ButtonIcon
+          className={styles.menuClose}
+          icon="close"
+          onClick={() => setIsOpened(false)}
+        />
+      ) : (
+        <ButtonIcon
+          className={styles.menuIcon}
+          icon="menu"
+          onClick={() => setIsOpened(true)}
+        />
+      )}
     </header>
   );
 };

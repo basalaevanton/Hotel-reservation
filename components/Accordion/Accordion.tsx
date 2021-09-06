@@ -7,6 +7,7 @@ import cn from 'classnames';
 import { useState, KeyboardEvent } from 'react';
 
 import { motion } from 'framer-motion';
+import { useIsMedium } from '../../hooks/mediaQueries';
 
 export const Accordion = ({
   title,
@@ -16,37 +17,35 @@ export const Accordion = ({
   ...props
 }: AccordionProps): JSX.Element => {
   const [isAccordionOpened, setIsAccordionOpened] = useState<boolean>(false);
+  const isMedium = useIsMedium();
 
-  const variants = {
-    visible: {
-      opacity: 1,
-      // height: 'auto',
-      display: 'flex',
-    },
-    hidden: {
-      opacity: 0,
-
-      // height: 0,
-      transitionEnd: {
-        display: 'none',
-      },
-    },
-  };
-
-  const searchVariants = {
-    visible: {
-      opacity: 1,
-      height: 'auto',
-      display: 'flex',
-    },
-    hidden: {
-      opacity: 0,
-      height: 0,
-      transitionEnd: {
-        display: 'none',
-      },
-    },
-  };
+  const variants = !isMedium
+    ? {
+        visible: {
+          opacity: 1,
+          y: 40,
+          display: 'flex',
+        },
+        hidden: {
+          opacity: 0,
+          transitionEnd: {
+            display: 'none',
+          },
+        },
+      }
+    : {
+        visible: {
+          opacity: 1,
+          display: 'flex',
+          x: 120,
+        },
+        hidden: {
+          opacity: 0,
+          transitionEnd: {
+            display: 'none',
+          },
+        },
+      };
 
   const hanleSpace = (key: KeyboardEvent<HTMLDivElement>) => {
     if (key.code === 'Space') {

@@ -1,47 +1,48 @@
 .accordion {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .accordionTitle {
-	display: inline-flex;
+  display: inline-flex;
 
-	overflow: hidden;
-	align-items: center;
+  overflow: hidden;
+  align-items: center;
 
-	margin-bottom: 10px;
-
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .children {
-	position: absolute;
-	z-index: 10;
+  position: absolute;
+  z-index: 10;
+  display: flex;
 
-	display: flex;
-
-	margin-top: 35px;
-
-	// padding-top: 10px;
-	// margin-bottom: 15px;
+  // padding-top: 10px;
+  // margin-bottom: 15px;
 }
 
 .Htag {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .arrowIcon {
-	margin-left: 8px;
+  margin-left: 8px;
 
-	transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .arrowIconSearch {
-	margin-left: 45px;
+  margin-left: 45px;
 
-	transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .arrowIconDown {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media (max-width: 910px) {
+  .header {
+    padding: 15px 15px 0 15px;
+  }
 }
