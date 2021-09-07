@@ -4,7 +4,7 @@ import ArrowIcon from './arrow.svg';
 
 import cn from 'classnames';
 import { ForwardedRef, forwardRef } from 'react';
-import { ButtonIcon } from '../../components';
+import { ButtonIcon } from '..';
 
 export const Input = forwardRef(
   (

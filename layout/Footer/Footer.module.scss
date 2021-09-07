@@ -10,7 +10,7 @@
 	margin: 80px 0;
 	grid-template-columns: 260px 145px 110px 150px 260px;
 
-	grid-template-areas: 'hotelTitle navigation about support suscription';
+	grid-template-areas: 'hotelTitle navigation about support subcription';
 }
 
 .hotelTitle {
@@ -29,8 +29,8 @@
 	grid-area: support;
 }
 
-.suscription {
-	grid-area: suscription;
+.subcription {
+	grid-area: subcription;
 
 	display: flex;
 	flex-direction: column;
@@ -89,25 +89,7 @@
 	}
 }
 
-.success {
-	position: relative;
 
-	width: 100%;
-	margin-top: 5px;
-
-	border-radius: 15px;
-	background-color: var(--green-light);
-}
-
-.successTitle {
-	font-weight: bold;
-}
-
-.successIcon {
-	margin-left: 10px;
-
-	cursor: pointer;
-}
 
 @media (max-width: 1020px) {
 	.footerNav {
@@ -115,7 +97,7 @@
 		gap: 30px 40px;
 		grid-template-areas:
 			'hotelTitle navigation about support'
-			'hotelTitle suscription suscription suscription';
+			'hotelTitle subcription subcription subcription';
 	}
 }
 
@@ -125,7 +107,7 @@
 
 		grid-template-columns: auto auto;
 		gap: 30px 40px;
-		grid-template-areas: 'hotelTitle suscription ';
+		grid-template-areas: 'hotelTitle subcription ';
 	}
 
 	.navigation {
@@ -149,7 +131,7 @@
 		gap: 30px 40px;
 		grid-template-areas:
 			'hotelTitle'
-			'suscription ';
+			'subcription ';
 	}
 
 	.navigation {
@@ -194,7 +176,7 @@
 		justify-content: center;
 	}
 
-	.suscription {
+	.subcription {
 		display: none;
 	}
 }

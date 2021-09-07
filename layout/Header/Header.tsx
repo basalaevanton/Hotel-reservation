@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import Link from 'next/link';
 
-import { ButtonIcon } from '../../components';
+import { ButtonIcon } from '../../componentsUI';
 import { motion } from 'framer-motion';
 
 import React, { useState } from 'react';

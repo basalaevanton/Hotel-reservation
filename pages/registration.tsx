@@ -12,7 +12,7 @@ import {
   RangeInput,
   Accordion,
   Dropdown,
-} from '../components';
+} from '../componentsUI';
 import type { NextPage } from 'next';
 import 'normalize.css';
 import { useState } from 'react';

@@ -1,0 +1,44 @@
+.success {
+  position: relative;
+
+  width: 100%;
+  margin-top: 5px;
+
+  border-radius: 15px;
+  background-color: var(--green-light);
+}
+
+.successTitle {
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.successIcon {
+  margin-left: 10px;
+
+  cursor: pointer;
+}
+
+.error {
+  position: relative;
+
+  width: 100%;
+  margin-top: 5px;
+
+  border-radius: 15px;
+  background-color: var(--error);
+}
+
+.errorTitle {
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.errorIcon {
+  margin-left: 10px;
+
+  cursor: pointer;
+  path {
+    stroke: var(--dark75);
+  }
+}
