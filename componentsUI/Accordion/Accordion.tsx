@@ -1,7 +1,7 @@
 import { AccordionProps } from './Accordion.props';
 import styles from './Accordion.module.scss';
 import ArrowIcon from './arrow.svg';
-import { Htag } from '../../components';
+import { Htag } from '..';
 
 import cn from 'classnames';
 import { useState, KeyboardEvent } from 'react';

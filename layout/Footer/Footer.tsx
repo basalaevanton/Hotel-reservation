@@ -1,46 +1,25 @@
+import React from 'react';
 import { FooterProps } from './Footer.props';
 import styles from './Footer.module.scss';
 import InstagramIcon from './instagram.svg';
 import TwitterIcon from './twitter.svg';
 import FacebookIcon from './facebook.svg';
 import Logo from '../logo.svg';
-import CloseIcon from './close.svg';
+
+import { P, Htag } from '../../componentsUI';
+import { SubscribeForm } from '../../components';
 
 import cn from 'classnames';
-
 import Link from 'next/link';
-
 import { format } from 'date-fns';
-import { useForm, Controller } from 'react-hook-form';
-
-import { P, Htag, Input, Button } from '../../components';
 
 import {
   NavigationFooter,
   AboutFooter,
   SupportFooter,
 } from '../../helpers/helper';
-import { useState } from 'react';
-
-export interface EmailForm {
-  email: string;
-}
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<EmailForm>();
-
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  const [error, setIsError] = useState<string>();
-
-  const onSubmit = async (data: EmailForm) => {
-    setIsSuccess(true);
-    console.log(data);
-  };
-
   return (
     <footer className={cn(className, styles.footer)} {...props}>
       <nav>
@@ -64,7 +43,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
             {NavigationFooter.links.map((link, id) => (
               <li key={id} className={styles.link}>
                 <Link href={link.route}>
-                  <a >{link.name}</a>
+                  <a>{link.name}</a>
                 </Link>
               </li>
             ))}
@@ -77,7 +56,7 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
             {AboutFooter.links.map((link, id) => (
               <li key={id} className={styles.link}>
                 <Link href={link.route}>
-                  <a >{link.name}</a>
+                  <a>{link.name}</a>
                 </Link>
               </li>
             ))}
@@ -90,42 +69,16 @@ export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
             {SupportFooter.links.map((link, id) => (
               <li key={id} className={styles.link}>
                 <Link href={link.route}>
-                  <a >{link.name}</a>
+                  <a>{link.name}</a>
                 </Link>
               </li>
             ))}
           </ul>
 
-          <li className={styles.suscription}>
+          <li className={styles.subcription}>
             <Htag tag="h3">Подписка</Htag>
             <P>Получайте специальные предложения и новости сервиса</P>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Input
-                arrow
-                placeholder="email"
-                type="text"
-                {...register('email', {
-                  required: 'Введите Email',
-                  pattern: {
-                    value:
-                      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                    message: 'Введите правильный Email',
-                  },
-                })}
-                error={errors.email}
-              />
-              {isSuccess && (
-                <div className={styles.success}>
-                  <div className={styles.successTitle}>
-                    Спасибо, вы подписались на новости отеля.
-                    <CloseIcon
-                      className={styles.successIcon}
-                      onClick={() => setIsSuccess(false)}
-                    />
-                  </div>
-                </div>
-              )}
-            </form>
+            <SubscribeForm />
           </li>
         </ul>
       </nav>

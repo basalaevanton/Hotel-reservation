@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import Link from 'next/link';
 
-import { Button, Accordion, Htag } from '../../../components';
+import { Button, Accordion, Htag } from '../../../componentsUI';
 
 import React, { useState } from 'react';
 

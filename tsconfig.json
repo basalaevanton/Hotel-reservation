@@ -21,6 +21,6 @@
       "*": ["types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "components/Dropdown/Dropdown.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "components_ui/Dropdown/Dropdown.jsx"],
   "exclude": ["node_modules"]
 }
