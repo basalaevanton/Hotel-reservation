@@ -1,0 +1,87 @@
+.registrationForm {
+  width: 380px;
+  background-color: var(--white);
+  margin-top: 40px;
+  padding: 0 30px 40px 30px;
+}
+
+.humanInfo {
+  margin: 20px 0;
+  display: grid;
+  gap: 20px;
+}
+
+.genderInfo {
+  display: inline-flex;
+  gap: 10px;
+}
+.errorGender {
+  color: var(--error);
+  font-weight: bold;
+}
+
+.birthdayInfo {
+  margin-bottom: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.loginInfo {
+  margin-bottom: 15px;
+  display: grid;
+  gap: 15px;
+}
+.subscriptionInfo {
+  margin-bottom: 20px;
+}
+.buttonInfo {
+  width: 100%;
+  justify-content: center;
+}
+
+.toLoginPage {
+  width: 100%;
+  margin-top: 30px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--black);
+}
+
+.datePicker {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  padding-right: 30px;
+
+  transition: all 0.5s;
+
+  color: var(--dark75);
+
+  border: 1px solid;
+  border-color: var(--dark25);
+  border-radius: 4px;
+  outline-width: 1px;
+  outline-color: var(--dark50);
+  background: var(--white);
+
+  font-family: var(--font-family);
+
+  font-size: 14px;
+  line-height: 24px;
+
+  &::placeholder {
+    padding: 13px auto 13px 15px;
+
+    color: var(--dark25);
+
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &:hover {
+    border-color: var(--dark75);
+  }
+}

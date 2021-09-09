@@ -17,9 +17,14 @@ import type { NextPage } from 'next';
 import 'normalize.css';
 import { useState } from 'react';
 import { withLayout } from '../layout/Layout';
+import { RegistrationForm } from '../components';
 
 const Registration: NextPage = () => {
-  return <div>Registration</div>;
+  return (
+    <div>
+      <RegistrationForm />
+    </div>
+  );
 };
 
 export default withLayout(Registration);

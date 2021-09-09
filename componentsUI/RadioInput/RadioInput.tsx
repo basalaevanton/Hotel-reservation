@@ -16,7 +16,9 @@ export const RadioInput = forwardRef(
     }: RadioInputProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
-    const handleRadioChange = (e: { currentTarget: { id: string } }) => {
+    
+    const handleRadioChange 
+    = (e: { currentTarget: { id: string } }) => {
       const { id } = e.currentTarget;
 
       handleChange(id); // Send back id to radio group for comparison
@@ -36,6 +38,7 @@ export const RadioInput = forwardRef(
         <label className={styles.label} htmlFor={label}>
           {label}
         </label>
+        
       </div>
     );
   }

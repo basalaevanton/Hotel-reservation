@@ -17,7 +17,7 @@ import {
   NavigationFooter,
   AboutFooter,
   SupportFooter,
-} from '../../helpers/helper';
+} from '../../helpers/dataHelper';
 
 export const Footer = ({ className, ...props }: FooterProps): JSX.Element => {
   return (

@@ -113,11 +113,7 @@ const Home: NextPage = () => {
           isChecked={selectedInput === 'Женщина'}
           handleChange={handleChange}
         />
-        <Switch
-          label="Получать спецпредложения"
-          isChecked={toggle}
-          handleToggle={switchChange}
-        />
+        <Switch label="Получать спецпредложения" checked />
 
         <RangeInput
           min={0}

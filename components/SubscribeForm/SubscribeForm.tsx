@@ -38,6 +38,7 @@ export const SubscribeForm = ({
       setIsError('');
       reset();
     }, 3000);
+    // return () => {};
   }, [isSuccess]);
 
   const onSubmit = async (data: EmailForm) => {
