@@ -1,44 +1,47 @@
 .success {
-  position: relative;
+	position: relative;
 
-  width: 100%;
-  margin-top: 5px;
+	width: 100%;
+	margin-top: 5px;
 
-  border-radius: 15px;
-  background-color: var(--green-light);
+	border-radius: 15px;
+	background-color: var(--green-light);
 }
 
 .successTitle {
-  padding-left: 15px;
-  font-weight: bold;
+	padding-left: 15px;
+
+	font-weight: bold;
 }
 
 .successIcon {
-  margin-left: 10px;
+	margin-left: 10px;
 
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .error {
-  position: relative;
+	position: relative;
 
-  width: 100%;
-  margin-top: 5px;
+	width: 100%;
+	margin-top: 5px;
 
-  border-radius: 15px;
-  background-color: var(--error);
+	border-radius: 15px;
+	background-color: var(--error);
 }
 
 .errorTitle {
-  padding-left: 15px;
-  font-weight: bold;
+	padding-left: 15px;
+
+	font-weight: bold;
 }
 
 .errorIcon {
-  margin-left: 10px;
+	margin-left: 10px;
 
-  cursor: pointer;
-  path {
-    stroke: var(--dark75);
-  }
+	cursor: pointer;
+
+	path {
+		stroke: var(--dark75);
+	}
 }
