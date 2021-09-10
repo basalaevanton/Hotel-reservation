@@ -32,6 +32,7 @@ export function useAuthListener() {
 export interface ProviderData {
   providerId: string;
   uid: string;
+  
   displayName?: any;
   email: string;
   phoneNumber?: any;
