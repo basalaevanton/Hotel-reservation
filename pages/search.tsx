@@ -19,18 +19,21 @@ import 'normalize.css';
 import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
 
+import { useActions, useTypedSelector } from '../hooks';
+
 const Search: NextPage = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { showModalRegistration } = useTypedSelector((state) => state.ui);
+  const { openModal, closeModal } = useActions();
 
   const toggleModal = () => {
-    setShowModal(!showModal);
+    openModal();
   };
   return (
     <div>
       <Button appearance="primary" onClick={toggleModal}>
         click on me
       </Button>
-      <Modal showModal={showModal}>ifo</Modal>
+      <Modal showModal={showModalRegistration}>ifo</Modal>
     </div>
   );
 };

@@ -27,5 +27,5 @@
 
 > При использовании в будущем
 
-- Redux, Redux-thunk, next-redux-wrapper (in process)
+- Redux, Redux-thunk, next-redux-wrapper, @reduxjs/toolkit (in process)
 

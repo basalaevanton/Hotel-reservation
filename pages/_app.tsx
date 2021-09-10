@@ -2,8 +2,9 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import React from 'react';
 import Head from 'next/head';
+import { wrapper } from '../store';
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function WrappedApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -24,4 +25,4 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     </>
   );
 }
-export default MyApp;
+export default wrapper.withRedux(WrappedApp);
