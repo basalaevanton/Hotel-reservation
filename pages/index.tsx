@@ -12,10 +12,11 @@ import {
   RangeInput,
   Accordion,
   Dropdown,
+  Modal,
 } from '../componentsUI';
 import type { NextPage } from 'next';
 import 'normalize.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
 import { useAuthListener } from '../hooks';
 
@@ -45,6 +46,17 @@ const Home: NextPage = () => {
 
   const user = useAuthListener();
   console.log(user);
+// 
+
+  // modal
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  // 
 
   return (
     <div
@@ -72,7 +84,8 @@ const Home: NextPage = () => {
           </>
         )}
 
-        <Button appearance="primary">click on me</Button>
+        <Button appearance="primary" >click on me</Button>
+        
         <Button appearance="ghost">click on me</Button>
         <Button border="primary">click on me</Button>
         <Button border="ghost">click on me</Button>

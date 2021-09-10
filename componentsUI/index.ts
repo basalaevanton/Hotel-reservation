@@ -12,4 +12,4 @@ export * from './Switch/Switch';
 export * from './RangeInput/RangeInput';
 export * from './Accordion/Accordion';
 export * from './Dropdown/Dropdown';
-
+export * from './Modal/Modal';

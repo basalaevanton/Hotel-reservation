@@ -12,14 +12,27 @@ import {
   RangeInput,
   Accordion,
   Dropdown,
+  Modal,
 } from '../componentsUI';
 import type { NextPage } from 'next';
 import 'normalize.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
 
 const Search: NextPage = () => {
-  return <div>search</div>;
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  return (
+    <div>
+      <Button appearance="primary" onClick={toggleModal}>
+        click on me
+      </Button>
+      <Modal showModal={showModal}>ifo</Modal>
+    </div>
+  );
 };
 
 export default withLayout(Search);

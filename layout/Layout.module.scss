@@ -33,6 +33,8 @@
 	display: flex;
 	justify-content: center;
 
+	min-height: 800px;
+
 	background-image: url('/img/backgrounds/image4.jpg');
 	grid-area: body;
 }
