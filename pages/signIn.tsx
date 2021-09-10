@@ -21,20 +21,16 @@ import { withLayout } from '../layout/Layout';
 
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import db from '../lib/firebase';
+import { LoginForm } from '../components';
 
 const SignIn: NextPage = () => {
-  const onSubmit = async () => {
-    try {
-      console.log('Document');
-    } catch (e) {
-      console.error('Error adding document: ', e);
-    }
-  };
+
 
   return (
-    <div>
-      login
-      <button onClick={onSubmit}> send data</button>
+    <div >
+   
+   <LoginForm/>
+
     </div>
   );
 };

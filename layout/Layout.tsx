@@ -23,7 +23,9 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Header className={styles.header} />
 
       {router.pathname === '/search' && <Sidebar className={styles.sidebar} />}
+
       <div className={styles.body}>{children}</div>
+      
       <Footer className={styles.footer} />
       {/* <Up /> */}
     </div>

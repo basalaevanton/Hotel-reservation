@@ -17,6 +17,7 @@ import type { NextPage } from 'next';
 import 'normalize.css';
 import { useState } from 'react';
 import { withLayout } from '../layout/Layout';
+import { useAuthListener } from '../hooks';
 
 const Home: NextPage = () => {
   // rating
@@ -42,6 +43,9 @@ const Home: NextPage = () => {
 
   //
 
+  const user = useAuthListener();
+  console.log(user);
+
   return (
     <div
       style={{
@@ -61,8 +65,12 @@ const Home: NextPage = () => {
           borderRadius: '5px',
         }}
       >
-        <h1> NextJs app...</h1>
-        <h2>Hello World!</h2>
+        {user && (
+          <>
+            <h1> NextJs app...</h1>
+            <h2>Hello World!</h2>
+          </>
+        )}
 
         <Button appearance="primary">click on me</Button>
         <Button appearance="ghost">click on me</Button>

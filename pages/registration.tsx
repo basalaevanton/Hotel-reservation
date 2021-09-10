@@ -22,6 +22,7 @@ import { RegistrationForm } from '../components';
 const Registration: NextPage = () => {
   return (
     <div>
+     
       <RegistrationForm />
     </div>
   );
