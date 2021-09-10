@@ -4,7 +4,14 @@ import { RegistrationFormProps } from './RegistrationForm.props';
 import { UserForm } from './RegistrationForm.intrerface';
 
 import styles from './RegistrationForm.module.scss';
-import { Button, Htag, Input, RadioInput, Switch } from '../../componentsUI';
+import {
+  Button,
+  Htag,
+  Input,
+  RadioInput,
+  Switch,
+  Modal,
+} from '../../componentsUI';
 
 import cn from 'classnames';
 
@@ -28,6 +35,7 @@ import {
   updateProfile,
   fetchSignInMethodsForEmail,
 } from 'firebase/auth';
+import { useTypedSelector, useActions } from '../../hooks';
 
 export const RegistrationForm = ({
   ...props
@@ -40,6 +48,9 @@ export const RegistrationForm = ({
     reset,
   } = useForm<UserForm>();
 
+  const { showModalRegistration } = useTypedSelector((state) => state.ui);
+  const { openModal,  } = useActions();
+
   // gender radio input
   const [gender, setGender] = useState<string>('');
 
@@ -51,14 +62,6 @@ export const RegistrationForm = ({
   //
   const [isSuccess, setIsSuccess] = useState<string>('');
   const [error, setIsError] = useState<string>();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsSuccess('');
-      setIsError('');
-    }, 3000);
-    // return () => {};
-  }, [isSuccess]);
 
   const onSubmit = async (data: UserForm) => {
     data.dateRegistration = new Date();
@@ -109,12 +112,20 @@ export const RegistrationForm = ({
     } catch (e: any) {
       setIsError(e.message);
     }
+    openModal();
   };
 
   return (
     <div className={styles.registrationForm}>
-      <div>{isSuccess}</div>
-      <div>{error}</div>
+      <Modal showModal={showModalRegistration}>
+        {isSuccess || error}
+        <Link href="/signIn">
+          <a>
+            <Button border="primary">Войти</Button>
+          </a>
+        </Link>
+      </Modal>
+
       <form onSubmit={handleSubmit(onSubmit)} {...props}>
         <Htag tag="h1">Регистрация аккаунта</Htag>
 
@@ -240,6 +251,7 @@ export const RegistrationForm = ({
           Зарегестрироваться
         </Button>
       </form>
+
       <div className={styles.toLoginPage}>
         Уже есть аккаунт на Toxin?
         <Link href="/signIn">

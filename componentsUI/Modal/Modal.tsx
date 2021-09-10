@@ -6,10 +6,10 @@ import ArrowIcon from './arrow.svg';
 import { ButtonIcon, Htag } from '..';
 
 import cn from 'classnames';
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent, useLayoutEffect } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useActions } from '../../hooks';
+import { useActions, useTypedSelector } from '../../hooks';
 
 export const Modal = ({
   showModal,
@@ -17,6 +17,7 @@ export const Modal = ({
   className,
   ...props
 }: ModalProps): JSX.Element => {
+  const { showModalRegistration } = useTypedSelector((state) => state.ui);
   const { closeModal } = useActions();
 
   const variantsModalBox = {
@@ -38,12 +39,30 @@ export const Modal = ({
     hidden: { y: -30, opacity: 0 },
   };
 
+  useLayoutEffect(() => {
+    const body = document.querySelector('body');
+    if (showModalRegistration) {
+      window.addEventListener('click', (e: MouseEvent) => {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        if ((e.target as HTMLDivElement).id === 'modalDialog') {
+          closeModal();
+        }
+      });
+    }
+
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      window.removeEventListener('click', () => {});
+    };
+  });
+
   return (
     <div
       className={cn(styles.modalContainer, className, {
         [styles.showModalContainer]: showModal == true,
       })}
-      onClick={() => closeModal()}
+      id="modalDialog"
+      // onClick={() => closeModal()}
       {...props}
     >
       <AnimatePresence>
