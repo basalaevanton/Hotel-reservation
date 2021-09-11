@@ -14,11 +14,12 @@ import { useActions, useTypedSelector } from '../../hooks';
 export const Modal = ({
   showModal,
   children,
+  closeModal,
   className,
   ...props
 }: ModalProps): JSX.Element => {
   const { showModalRegistration } = useTypedSelector((state) => state.ui);
-  const { closeModal } = useActions();
+  
 
   const variantsModalBox = {
     visible: {

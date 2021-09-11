@@ -18,7 +18,7 @@ import type { NextPage } from 'next';
 import 'normalize.css';
 import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
-import { useAuthListener } from '../hooks';
+
 
 const Home: NextPage = () => {
   // rating
@@ -44,17 +44,12 @@ const Home: NextPage = () => {
 
   //
 
-  const user = useAuthListener();
-  console.log(user);
+
 // 
 
   // modal
 
-  const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
 
   // 
 
@@ -77,12 +72,12 @@ const Home: NextPage = () => {
           borderRadius: '5px',
         }}
       >
-        {user && (
+      
           <>
             <h1> NextJs app...</h1>
             <h2>Hello World!</h2>
           </>
-        )}
+      
 
         <Button appearance="primary" >click on me</Button>
         

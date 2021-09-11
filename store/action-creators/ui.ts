@@ -1,11 +1,18 @@
 import { UiAction, UiActionTypes } from '../../interfaces/ui.interface';
 
-export const openModal = (): UiAction => {
-  return { type: UiActionTypes.OPEN_MODAL };
+export const openModalReg = (): UiAction => {
+  return { type: UiActionTypes.OPEN_MODAL_REG };
 };
 
-export const closeModal = (): UiAction => {
-  return { type: UiActionTypes.CLOSE_MODAL };
+export const closeModalReg = (): UiAction => {
+  return { type: UiActionTypes.CLOSE_MODAL_REG };
+};
+export const openModalLogin = (): UiAction => {
+  return { type: UiActionTypes.OPEN_MODAL_LOG };
+};
+
+export const closeModalLogin = (): UiAction => {
+  return { type: UiActionTypes.CLOSE_MODAL_LOG };
 };
 
 // export const closeModal = (payload:number): UiAction => {

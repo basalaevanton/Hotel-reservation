@@ -4,13 +4,19 @@ import { LoginFormProps } from './LoginForm.props';
 import { userLoginForm } from './userLoginForm.intrerface';
 
 import styles from './LoginForm.module.scss';
-import { Button, Htag, Input, RadioInput, Switch } from '../../componentsUI';
+import {
+  Button,
+  Htag,
+  Input,
+  Modal,
+  RadioInput,
+  Switch,
+} from '../../componentsUI';
 
 import cn from 'classnames';
 
 import { Controller, useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
 
 import {
   addDoc,
@@ -28,8 +34,9 @@ import {
   updateProfile,
   fetchSignInMethodsForEmail,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from 'firebase/auth';
+import { useTypedSelector, useActions } from '../../hooks';
 
 export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
   const {
@@ -40,23 +47,23 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
     reset,
   } = useForm<userLoginForm>();
 
+  const { showModalLogin } = useTypedSelector((state) => state.ui);
+  const { openModalLogin, closeModalLogin } = useActions();
   //
   const [isSuccess, setIsSuccess] = useState<string>('');
-  const [error, setIsError] = useState<string>();
+  const [error, setIsError] = useState<string>('');
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsSuccess('');
-      setIsError('');
-    }, 3000);
-    
-// const auth = getAuth();
-// signOut(auth).then(() => {
-//   // Sign-out successful.
-// }).catch((error) => {
-//   // An error happened.
-// });
-
+    // setTimeout(() => {
+    //   setIsSuccess('');
+    //   setIsError('');
+    // }, 3000);
+    // const auth = getAuth();
+    // signOut(auth).then(() => {
+    //   // Sign-out successful.
+    // }).catch((error) => {
+    //   // An error happened.
+    // });
     // return () => {};isSuccess
   }, []);
 
@@ -69,20 +76,41 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
         // Signed in
         const user = userCredential.user;
         // localStorage.setItem('authUser', JSON.stringify(user));
-        // document.cookie = JSON.stringify(user);
-        // console.log(user.uid);
 
+        console.log(user.uid);
+
+
+        
+        setIsSuccess('Вы успешно зашли на сайт.');
+      
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+      .catch((e: any) => {
+        setIsError(e.message);
+        // reset();
       });
+    openModalLogin();
   };
 
   return (
     <div className={styles.loginForm}>
-      <div>{isSuccess}</div>
-      <div>{error}</div>
+      <Modal showModal={showModalLogin} closeModal={() => closeModalLogin()}>
+        {isSuccess || error}
+        {isSuccess && (
+          <Link href="/">
+            <a>
+              <Button border="primary" onClick={() => closeModalLogin()}>
+                Войти
+              </Button>
+            </a>
+          </Link>
+        )}
+        {error && (
+          <Button border="primary" onClick={() => closeModalLogin()}>
+            Ошибка входа.
+          </Button>
+        )}
+      </Modal>
+
       <form onSubmit={handleSubmit(onSubmit)} {...props}>
         <Htag tag="h1">Войти</Htag>
 

@@ -1,17 +1,27 @@
 export interface UiState {
   showModalRegistration: boolean;
+  showModalLogin: boolean;
 }
 
 export enum UiActionTypes {
-  OPEN_MODAL = 'OPEN_MODAL',
-  CLOSE_MODAL = 'CLOSE_MODAL',
+  OPEN_MODAL_REG = 'OPEN_MODAL_REG',
+  CLOSE_MODAL_REG = 'CLOSE_MODAL_REG',
+  OPEN_MODAL_LOG = 'OPEN_MODAL_LOG',
+  CLOSE_MODAL_LOG = 'CLOSE_MODAL_LOG',
 }
 
-interface OpenModalAction {
-  type: UiActionTypes.OPEN_MODAL;
+interface OpenModalRegAction {
+  type: UiActionTypes.OPEN_MODAL_REG;
 }
-interface CloseModalAction {
-  type: UiActionTypes.CLOSE_MODAL;
+interface CloseModalRegAction {
+  type: UiActionTypes.CLOSE_MODAL_REG;
+}
+
+interface OpenModalLoginAction {
+  type: UiActionTypes.OPEN_MODAL_LOG;
+}
+interface CloseModalLoginAction {
+  type: UiActionTypes.CLOSE_MODAL_LOG;
 }
 
 // interface ShowModalAction {
@@ -19,4 +29,8 @@ interface CloseModalAction {
 //   payload: number;
 // }
 
-export type UiAction = OpenModalAction | CloseModalAction;
+export type UiAction =
+  | OpenModalRegAction
+  | CloseModalRegAction
+  | OpenModalLoginAction
+  | CloseModalLoginAction;

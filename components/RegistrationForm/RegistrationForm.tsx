@@ -49,7 +49,7 @@ export const RegistrationForm = ({
   } = useForm<UserForm>();
 
   const { showModalRegistration } = useTypedSelector((state) => state.ui);
-  const { openModal,  } = useActions();
+  const { openModalReg, closeModalReg } = useActions();
 
   // gender radio input
   const [gender, setGender] = useState<string>('');
@@ -61,7 +61,7 @@ export const RegistrationForm = ({
   };
   //
   const [isSuccess, setIsSuccess] = useState<string>('');
-  const [error, setIsError] = useState<string>();
+  const [error, setIsError] = useState<string>('');
 
   const onSubmit = async (data: UserForm) => {
     data.dateRegistration = new Date();
@@ -112,16 +112,21 @@ export const RegistrationForm = ({
     } catch (e: any) {
       setIsError(e.message);
     }
-    openModal();
+    openModalReg();
   };
 
   return (
     <div className={styles.registrationForm}>
-      <Modal showModal={showModalRegistration}>
+      <Modal
+        showModal={showModalRegistration}
+        closeModal={() => closeModalReg()}
+      >
         {isSuccess || error}
         <Link href="/signIn">
           <a>
-            <Button border="primary">Войти</Button>
+            <Button border="primary" onClick={() => closeModalReg()}>
+              Войти
+            </Button>
           </a>
         </Link>
       </Modal>
