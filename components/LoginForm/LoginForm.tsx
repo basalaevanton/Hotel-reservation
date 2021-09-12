@@ -17,7 +17,6 @@ import cn from 'classnames';
 
 import { Controller, useForm } from 'react-hook-form';
 
-
 import {
   addDoc,
   collection,
@@ -53,19 +52,7 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
   const [isSuccess, setIsSuccess] = useState<string>('');
   const [error, setIsError] = useState<string>('');
 
-  useEffect(() => {
-    // setTimeout(() => {
-    //   setIsSuccess('');
-    //   setIsError('');
-    // }, 3000);
-    // const auth = getAuth();
-    // signOut(auth).then(() => {
-    //   // Sign-out successful.
-    // }).catch((error) => {
-    //   // An error happened.
-    // });
-    // return () => {};isSuccess
-  }, []);
+
 
   const onSubmit = (data: userLoginForm) => {
     console.log(data);
@@ -79,14 +66,12 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
 
         console.log(user.uid);
 
-
-        
         setIsSuccess('Вы успешно зашли на сайт.');
-      
+        reset();
       })
       .catch((e: any) => {
         setIsError(e.message);
-        // reset();
+        reset();
       });
     openModalLogin();
   };

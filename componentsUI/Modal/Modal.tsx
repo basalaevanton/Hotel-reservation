@@ -6,7 +6,7 @@ import ArrowIcon from './arrow.svg';
 import { ButtonIcon, Htag } from '..';
 
 import cn from 'classnames';
-import React, { useState, KeyboardEvent, useLayoutEffect } from 'react';
+import React, { useState, KeyboardEvent, useLayoutEffect, useEffect } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useActions, useTypedSelector } from '../../hooks';
@@ -40,7 +40,7 @@ export const Modal = ({
     hidden: { y: -30, opacity: 0 },
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const body = document.querySelector('body');
     if (showModalRegistration) {
       window.addEventListener('click', (e: MouseEvent) => {

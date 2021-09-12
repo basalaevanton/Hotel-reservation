@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 
 export function useAuthListener() {
+  
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export function useAuthListener() {
         const uid = user.uid;
         localStorage.setItem('authUser', JSON.stringify(user));
         setUser(JSON.parse(localStorage.getItem('authUser')!));
+        // в редакс user info по  user.id
       } else {
         localStorage.removeItem('authUser');
       }
@@ -27,8 +29,7 @@ export function useAuthListener() {
   }, []);
 
   return user;
-}
-
+}                                                                                                    
 export interface ProviderData {
   providerId: string;
   uid: string;

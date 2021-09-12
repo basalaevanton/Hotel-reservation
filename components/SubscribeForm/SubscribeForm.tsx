@@ -32,18 +32,8 @@ export const SubscribeForm = ({
   const [isSuccess, setIsSuccess] = useState<string>('');
   const [error, setIsError] = useState<string>();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsSuccess('');
-      setIsError('');
-      reset();
-    }, 3000);
-    // return () => {};
-  }, [isSuccess]);
-
   const onSubmit = async (data: EmailForm) => {
     data.date = new Date();
-    console.log(data);
 
     try {
       const subscr = query(
@@ -62,15 +52,28 @@ export const SubscribeForm = ({
 
           setIsSuccess('Спасибо, вы подписались на новости отеля.');
 
-          reset();
+          setTimeout(() => {
+            setIsSuccess('');
+
+            reset();
+          }, 3000);
         } catch (e: any) {
           setIsError(e.message);
         }
       } else {
         setIsSuccess('Вы уже подписаны');
+        setTimeout(() => {
+          setIsSuccess('');
+
+          reset();
+        }, 3000);
       }
     } catch (e: any) {
       setIsError(e.message);
+      setTimeout(() => {
+        setIsError('');
+        reset();
+      }, 3000);
     }
   };
 
