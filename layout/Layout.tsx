@@ -14,6 +14,9 @@ import cn from 'classnames';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const router = useRouter();
+  const randomBackground = Math.floor(Math.random() * (5 - 1)) + 1;
+  console.log(randomBackground);
+
   return (
     <div
       className={cn(styles.wrapper, {
@@ -22,10 +25,25 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     >
       <Header className={styles.header} />
 
-      {router.pathname === '/search' && <Sidebar className={styles.sidebar} />}
+      {router.pathname !== '/search' && (
+        <div
+          className={cn(styles.body, {
+            [styles.background1]: randomBackground == 1,
+            [styles.background2]: randomBackground == 2,
+            [styles.background3]: randomBackground == 3,
+            [styles.background4]: randomBackground == 4,
+          })}
+        >
+          {children}
+        </div>
+      )}
+      {router.pathname === '/search' && (
+        <>
+          <Sidebar className={styles.sidebar} />
+          <div className={styles.body}>{children}</div>
+        </>
+      )}
 
-      <div className={styles.body}>{children}</div>
-      
       <Footer className={styles.footer} />
       {/* <Up /> */}
     </div>

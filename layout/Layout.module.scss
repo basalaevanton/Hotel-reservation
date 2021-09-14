@@ -2,17 +2,18 @@
 	display: grid;
 
 	min-height: 100vh;
-	padding: 0 15px;
+
 	grid-template-columns: auto minmax(320px, 1400px) auto;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
 		'. header .'
-		'. body .'
+		'body body body'
 		'. footer .';
 }
 
 .wrapperSidebar {
 	min-height: 100vh;
+	padding: 0 15px;
 	grid-template-columns: auto 265px minmax(320px, 1135px) auto;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
@@ -22,6 +23,7 @@
 }
 
 .header {
+	padding: 18px 15px;
 	grid-area: header;
 }
 
@@ -33,12 +35,48 @@
 	display: flex;
 	justify-content: center;
 
-	min-height: 800px;
+	padding: 0 15px;
 
-	background-image: url('/img/backgrounds/image4.jpg');
 	grid-area: body;
 }
 
 .footer {
+	padding: 0 15px;
 	grid-area: footer;
+}
+
+.background1 {
+	min-height: 900px;
+
+	background-image: url('/img/backgrounds/image1.jpg');
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-position: center; /* Center the image */
+	background-size: cover;
+}
+
+.background2 {
+	min-height: 900px;
+
+	background-image: url('/img/backgrounds/image2.jpg');
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-position: center; /* Center the image */
+	background-size: cover;
+}
+
+.background3 {
+	min-height: 900px;
+
+	background-image: url('/img/backgrounds/image3.jpg');
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-position: center; /* Center the image */
+	background-size: cover;
+}
+
+.background4 {
+	min-height: 900px;
+
+	background-image: url('/img/backgrounds/image4.jpg');
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-position: center; /* Center the image */
+	background-size: cover;
 }

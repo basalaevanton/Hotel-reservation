@@ -27,11 +27,11 @@ const SignIn: NextPage = () => {
 
 
   return (
-    <div >
+    
    
    <LoginForm/>
 
-    </div>
+    
   );
 };
 

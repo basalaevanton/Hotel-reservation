@@ -1,4 +1,4 @@
-import { UiAction, UiActionTypes } from '../../interfaces/ui.interface';
+import { UiAction, UiActionTypes } from '../types/ui.interface';
 
 export const openModalReg = (): UiAction => {
   return { type: UiActionTypes.OPEN_MODAL_REG };

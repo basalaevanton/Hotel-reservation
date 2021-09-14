@@ -2,7 +2,7 @@ import {
   UiState,
   UiAction,
   UiActionTypes,
-} from '../../interfaces/ui.interface';
+} from '../types/ui.interface';
 
 const initialState: UiState = {
   showModalRegistration: false,
