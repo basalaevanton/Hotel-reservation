@@ -5,10 +5,11 @@ import React, { FunctionComponent } from 'react';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
 import { Footer } from './Footer/Footer';
+import { Up } from '../componentsUI';
 
 import { useRouter } from 'next/router';
 
-// import { Up } from '../components';
+
 
 import cn from 'classnames';
 
@@ -45,7 +46,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       )}
 
       <Footer className={styles.footer} />
-      {/* <Up /> */}
+      <Up />
     </div>
   );
 };

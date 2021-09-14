@@ -13,3 +13,4 @@ export * from './RangeInput/RangeInput';
 export * from './Accordion/Accordion';
 export * from './Dropdown/Dropdown';
 export * from './Modal/Modal';
+export * from './Up/Up';
