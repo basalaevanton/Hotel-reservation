@@ -16,23 +16,16 @@ import {
 import cn from 'classnames';
 
 import { Controller, useForm } from 'react-hook-form';
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import MaskedTextInput from 'react-text-mask';
 
-import {
-  addDoc,
-  collection,
-  doc,
-  query,
-  where,
-  getDocs,
-  setDoc,
-} from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import db from '../../lib/firebase';
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfile,
   fetchSignInMethodsForEmail,
 } from 'firebase/auth';
 import { useTypedSelector, useActions } from '../../hooks';
@@ -67,7 +60,7 @@ export const RegistrationForm = ({
     data.dateRegistration = new Date();
     data.subscription = subscription;
 
-    console.log(data);
+    
 
     try {
       const auth = getAuth();
@@ -197,12 +190,30 @@ export const RegistrationForm = ({
             render={({ field }) => (
               <>
                 <DatePicker
-                  dateFormat="MM/dd/yyyy"
-                  placeholderText="ММ.ДД.ГГГГ"
+                  dateFormat="dd/MM/yyyy"
+                  placeholderText="ДД.ММ.ГГГГ"
+                  customInput={
+                    <MaskedTextInput
+                      type="text"
+                      mask={[
+                        /\d/,
+                        /\d/,
+                        '.',
+                        /\d/,
+                        /\d/,
+                        '.',
+                        /\d/,
+                        /\d/,
+                        /\d/,
+                        /\d/,
+                      ]}
+                    />
+                  }
                   onChange={(e) => field.onChange(e)}
                   selected={field.value}
                   className={styles.datePicker}
                 />
+
                 <span className={styles.errorGender}>
                   {errors.birthday?.message}
                 </span>

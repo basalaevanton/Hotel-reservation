@@ -1,6 +1,6 @@
 import styles from './Up.module.scss';
 
-import cn from 'classnames';
+
 
 import { useScrollY } from '../../hooks/useScrollY';
 import { motion, useAnimation } from 'framer-motion';

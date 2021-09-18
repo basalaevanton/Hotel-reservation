@@ -9,14 +9,12 @@ import { Up } from '../componentsUI';
 
 import { useRouter } from 'next/router';
 
-
-
 import cn from 'classnames';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const router = useRouter();
-  const randomBackground = Math.floor(Math.random() * (5 - 1)) + 1;
-  console.log(randomBackground);
+  // eslint-disable-next-line prefer-const
+  let randomBackground = Math.floor(Math.random() * (5 - 1)) + 1;
 
   return (
     <div
