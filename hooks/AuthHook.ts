@@ -8,20 +8,36 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 
+import { doc, getDoc, getDocFromCache } from 'firebase/firestore';
+import db from '../lib/firebase';
+import { useActions } from '.';
+
 export function useAuthListener() {
-  
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<RootObject | undefined>();
+
+  // const { getUser } = useActions();
 
   useEffect(() => {
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         localStorage.setItem('authUser', JSON.stringify(user));
+
+        // в стате из localStorage
         setUser(JSON.parse(localStorage.getItem('authUser')!));
+
+        // const userInfo = await getDoc(doc(db, 'users', uid));
+
+        // setUser(userInfo.data());
+
         // в редакс user info по  user.id
+        // костыль чтоб засунуть данные из базы в редакс... релоад каждый раз
+        // if (userInfo.exists()) {
+        //   getUser(userInfo.data());
+        // }
       } else {
         localStorage.removeItem('authUser');
       }
@@ -29,11 +45,12 @@ export function useAuthListener() {
   }, []);
 
   return user;
-}                                                                                                    
+}
+
 export interface ProviderData {
   providerId: string;
   uid: string;
-  
+
   displayName?: any;
   email: string;
   phoneNumber?: any;
@@ -58,3 +75,14 @@ export interface RootObject {
   apiKey?: string;
   appName?: string;
 }
+
+// export interface UserForm {
+//   name: string;
+//   lastname: string;
+//   gender: string;
+//   birthday: Date;
+//   email: string;
+//   password: string;
+//   subscription: boolean;
+//   dateRegistration: Date;
+// }

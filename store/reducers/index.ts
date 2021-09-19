@@ -1,9 +1,11 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { combineReducers } from 'redux';
 import { uiReducer } from './uiReducer';
+import { userReducer } from './userReducer';
 
 const rootReducer = combineReducers({
   ui: uiReducer,
+  user: userReducer,
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

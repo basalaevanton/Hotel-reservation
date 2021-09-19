@@ -55,16 +55,17 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
 
 
   const onSubmit = (data: userLoginForm) => {
-    console.log(data);
+
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+
+        // const user = userCredential.user;
+
         // localStorage.setItem('authUser', JSON.stringify(user));
 
-        console.log(user.uid);
 
         setIsSuccess('Вы успешно зашли на сайт.');
         reset();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { RegistrationFormProps } from './RegistrationForm.props';
-import { UserForm } from './RegistrationForm.intrerface';
+import { UserForm } from '../../interfaces/UserFormDB.intrerface';
 
 import styles from './RegistrationForm.module.scss';
 import {

@@ -35,6 +35,7 @@
 	display: flex;
 	justify-content: center;
 
+	height: auto;
 	padding: 0 15px;
 
 	grid-area: body;
@@ -50,8 +51,9 @@
 
 	background-image: url('/img/backgrounds/image1.jpg');
 	background-repeat: no-repeat; /* Do not repeat the image */
-	background-position: center; /* Center the image */
-	background-size: cover;
+	background-position: top; /* Center the image */
+
+	background-size: 100%;
 }
 
 .background2 {
@@ -59,8 +61,8 @@
 
 	background-image: url('/img/backgrounds/image2.jpg');
 	background-repeat: no-repeat; /* Do not repeat the image */
-	background-position: center; /* Center the image */
-	background-size: cover;
+	background-position: top; /* Center the image */
+	background-size: 100%;
 }
 
 .background3 {
@@ -68,8 +70,8 @@
 
 	background-image: url('/img/backgrounds/image3.jpg');
 	background-repeat: no-repeat; /* Do not repeat the image */
-	background-position: center; /* Center the image */
-	background-size: cover;
+	background-position: top; /* Center the image */
+	background-size: 100%;
 }
 
 .background4 {
@@ -77,6 +79,6 @@
 
 	background-image: url('/img/backgrounds/image4.jpg');
 	background-repeat: no-repeat; /* Do not repeat the image */
-	background-position: center; /* Center the image */
-	background-size: cover;
+	background-position: top; /* Center the image */
+	background-size: 100%;
 }

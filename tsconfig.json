@@ -21,6 +21,6 @@
       "*": ["types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "components_ui/Dropdown/Dropdown.jsx", "hooks/AuthHook.js", "pages/hotels.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", "components_ui/Dropdown/Dropdown.jsx", "hooks/AuthHook.ts", "pages/hotels.tsx", "pages/user.tsx", "hooks/UserInfoHook.ts", "hooks/UserInfoHook.ts"],
   "exclude": ["node_modules"]
 }

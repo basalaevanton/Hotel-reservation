@@ -25,8 +25,8 @@ import { HotelsRoot } from '../interfaces/hotels.interface';
 import { GetStaticProps, NextPage } from 'next';
 
 function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
-  console.log(hotels);
-  console.log(pagination);
+  // console.log(hotels);
+  // console.log(pagination);
 
   return (
     <div>

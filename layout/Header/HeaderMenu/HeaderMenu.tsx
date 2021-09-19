@@ -1,6 +1,5 @@
 import { HeaderMenuProps } from './HeaderMenu.props';
 import styles from './HeaderMenu.module.scss';
-import Logo from './logo.svg';
 
 import cn from 'classnames';
 
@@ -8,13 +7,31 @@ import Link from 'next/link';
 
 import { Button, Accordion, Htag } from '../../../componentsUI';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+
+import { useAuthListener } from '../../../hooks';
+
+import { getAuth, signOut } from 'firebase/auth';
+import { useRouter } from 'next/router';
 
 export const HeaderMenu = ({
   className,
   ...props
 }: HeaderMenuProps): JSX.Element => {
-  const [user, setUser] = useState('');
+  // const [user, SetUser] = useState();
+
+  const user = useAuthListener();
+  const SignOutUser = () => {
+    const router = useRouter();
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      return router.push('/');
+    });
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  useEffect(() => {}, [user]);
 
   return (
     <ul className={cn(className, styles.menu)} {...props}>
@@ -77,7 +94,13 @@ export const HeaderMenu = ({
       </li>
       {user ? (
         <Htag className={styles.user} tag="h2">
-          {user}
+          <Link href="/user">
+            <a> {user.email}</a>
+          </Link>
+
+          <Button appearance="primary" onClick={SignOutUser}>
+            Выйти
+          </Button>
         </Htag>
       ) : (
         <>

@@ -1,3 +1,4 @@
-import * as ActionCreators from '../action-creators/ui';
+import * as UiActionCreators from '../action-creators/ui';
+import * as UserActionCreators from '../action-creators/user';
 
-export default { ...ActionCreators };
+export default { ...UiActionCreators, ...UserActionCreators };

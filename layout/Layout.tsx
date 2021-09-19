@@ -1,7 +1,7 @@
 import { LayoutProps } from './Layout.props';
 import styles from './Layout.module.scss';
 
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
 import { Footer } from './Footer/Footer';
@@ -10,11 +10,17 @@ import { Up } from '../componentsUI';
 import { useRouter } from 'next/router';
 
 import cn from 'classnames';
+import { useAuthListener } from '../hooks';
+
+import { getAuth, signOut } from 'firebase/auth';
+import { doc, getDoc, getDocFromCache } from 'firebase/firestore';
+import db from '../lib/firebase';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const router = useRouter();
   // eslint-disable-next-line prefer-const
   let randomBackground = Math.floor(Math.random() * (5 - 1)) + 1;
+  // const randomBackground = 1;
 
   return (
     <div

@@ -17,6 +17,8 @@ import { useIsMedium } from '../../hooks/mediaQueries';
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const isMedium = useIsMedium();
+  
+
 
   const variants = !isMedium
     ? {
