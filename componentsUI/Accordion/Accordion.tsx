@@ -55,7 +55,7 @@ export const Accordion = ({
   };
 
   return (
-    <div className={cn(styles.accordion, className)} {...props}>
+    <div className={cn(styles.accordion)} {...props}>
       <div
         className={styles.accordionTitle}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
@@ -74,7 +74,7 @@ export const Accordion = ({
         />
       </div>
       <motion.div
-        className={styles.children}
+        className={cn(styles.children, className)}
         animate={isAccordionOpened ? 'visible' : 'hidden'}
         variants={variants}
         initial="hidden"

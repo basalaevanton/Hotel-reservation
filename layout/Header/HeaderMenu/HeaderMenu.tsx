@@ -41,7 +41,7 @@ export const HeaderMenu = ({
         </Link>
       </li>
       <li className={styles.menuItem}>
-        <Accordion title="Услуги">
+        <Accordion title="Услуги" className={styles.headerAccordion}>
           <ul>
             <li className={styles.accordionItem}>
               <Link href="/search">
@@ -72,7 +72,7 @@ export const HeaderMenu = ({
         </Link>
       </li>
       <li className={styles.menuItem}>
-        <Accordion title="Соглашения">
+        <Accordion title="Соглашения" className={styles.headerAccordion}>
           <ul>
             <li className={styles.accordionItem}>
               <Link href="/">
