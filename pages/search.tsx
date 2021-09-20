@@ -22,7 +22,11 @@ import { withLayout } from '../layout/Layout';
 import { useActions, useTypedSelector } from '../hooks';
 
 const Search: NextPage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Htag tag="h1">Номера, которые мы для вас подобрали</Htag>
+    </div>
+  );
 };
 
 export default withLayout(Search);

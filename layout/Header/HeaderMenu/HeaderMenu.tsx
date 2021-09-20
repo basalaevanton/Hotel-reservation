@@ -62,7 +62,7 @@ export const HeaderMenu = ({
         </Accordion>
       </li>
       <li className={styles.menuItem}>
-        <Link href="/">
+        <Link href="/components">
           <a>Вакансии</a>
         </Link>
       </li>
@@ -76,17 +76,17 @@ export const HeaderMenu = ({
           <ul>
             <li className={styles.accordionItem}>
               <Link href="/">
-                <a>Соглашениe 1</a>
+                <a>Соглашениe&nbsp;1</a>
               </Link>
             </li>
             <li className={styles.accordionItem}>
               <Link href="/">
-                <a>Соглашениe 2</a>
+                <a>Соглашениe&nbsp;2</a>
               </Link>
             </li>
             <li className={styles.accordionItem}>
               <Link href="/">
-                <a>Соглашениe 3</a>
+                <a>Соглашениe&nbsp;3</a>
               </Link>
             </li>
           </ul>

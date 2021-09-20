@@ -66,6 +66,7 @@ const Home: NextPage = () => {
           maxWidth: '500px',
           border: '1px solid gray',
           borderRadius: '5px',
+          background: 'white',
         }}
       >
         <>

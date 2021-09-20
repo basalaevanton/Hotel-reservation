@@ -14,7 +14,7 @@
 .wrapperSidebar {
 	min-height: 100vh;
 	padding: 0 15px;
-	grid-template-columns: auto 265px minmax(320px, 1135px) auto;
+	grid-template-columns: auto 340px minmax(320px, 1060px) auto;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas:
 		'. header header .'
@@ -28,6 +28,7 @@
 }
 
 .sidebar {
+	padding: 0 60px 0 15px;
 	grid-area: sidebar;
 }
 
