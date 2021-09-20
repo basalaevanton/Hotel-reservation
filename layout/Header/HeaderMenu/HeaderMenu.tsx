@@ -37,14 +37,25 @@ export const HeaderMenu = ({
     <ul className={cn(className, styles.menu)} {...props}>
       <li className={styles.menuItem}>
         <Link href="/hotels">
-          <a>О&nbsp;нас</a>
+          <a>Отели</a>
+        </Link>
+      </li>
+
+      <li className={styles.menuItem}>
+        <Link href="/components">
+          <a>Компоненты</a>
+        </Link>
+      </li>
+      <li className={styles.menuItem}>
+        <Link href="/search">
+          <a>Поиск</a>
         </Link>
       </li>
       <li className={styles.menuItem}>
         <Accordion title="Услуги" className={styles.headerAccordion}>
           <ul>
             <li className={styles.accordionItem}>
-              <Link href="/search">
+              <Link href="/">
                 <a>Услуга 1</a>
               </Link>
             </li>
@@ -60,16 +71,6 @@ export const HeaderMenu = ({
             </li>
           </ul>
         </Accordion>
-      </li>
-      <li className={styles.menuItem}>
-        <Link href="/components">
-          <a>Вакансии</a>
-        </Link>
-      </li>
-      <li className={styles.menuItem}>
-        <Link href="/">
-          <a>Новости</a>
-        </Link>
       </li>
       <li className={styles.menuItem}>
         <Accordion title="Соглашения" className={styles.headerAccordion}>
