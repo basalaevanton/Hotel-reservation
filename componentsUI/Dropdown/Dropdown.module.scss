@@ -22,6 +22,10 @@
 	border-bottom: 1px solid var(--dark50);
 }
 
+.dropdownTitleClose {
+	border-bottom: none;
+}
+
 .p {
 	overflow: hidden;
 
@@ -45,6 +49,10 @@
 	&:first-child {
 		padding-top: 15px;
 	}
+
+	&:last-child {
+		padding-bottom: 10px;
+	}
 }
 
 .counter {
@@ -58,6 +66,10 @@
 }
 
 .button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	width: 30px;
 	height: 30px;
 

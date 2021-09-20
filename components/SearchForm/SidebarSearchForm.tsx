@@ -31,17 +31,17 @@ export const SidebarSearchForm = ({
     <div className={styles.searchForm}>
       <form {...props}>
         <section className={styles.dates}>
-          <Htag tag="h3">Даты пребывания в отеле</Htag>
+          <Htag tag="h3" className={styles.title}>Даты пребывания в отеле</Htag>
           <Input placeholder="dates..." type="date" />
         </section>
 
         <section className={styles.guests}>
-          <Htag tag="h3">Гости</Htag>
+          <Htag tag="h3"className={styles.title}>Гости</Htag>
           <Dropdown title="guest" />
         </section>
 
         <section className={styles.price}>
-          <Htag tag="h3">Диапозон цены</Htag>
+          <Htag tag="h3" className={styles.title}>Диапозон цены</Htag>
           <RangeInput
             min={0}
             max={500}
@@ -53,14 +53,14 @@ export const SidebarSearchForm = ({
         </section>
 
         <section className={styles.rules}>
-          <Htag tag="h3">Правила дома</Htag>
+          <Htag tag="h3" className={styles.title}>Правила дома</Htag>
           <Checkbox label="Можно курить" />
           <Checkbox label="Можно с питомцами" />
           <Checkbox label="Можно пригласить гостей (до 10 человек)" />
         </section>
 
         <section className={styles.accessability}>
-          <Htag tag="h3">Доступность</Htag>
+          <Htag tag="h3" className={styles.title}>Доступность</Htag>
           <Checkbox
             label="Широкий коридор"
             info="Ширина коридоров в номере не менее 91 см."
@@ -72,7 +72,7 @@ export const SidebarSearchForm = ({
         </section>
 
         <section className={styles.room}>
-          <Htag tag="h3">Удобства номера</Htag>
+          <Htag tag="h3" className={styles.title}>Удобства номера</Htag>
           <Dropdown title="room" />
         </section>
 

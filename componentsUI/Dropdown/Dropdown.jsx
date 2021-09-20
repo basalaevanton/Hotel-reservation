@@ -41,29 +41,33 @@ export const Dropdown = ({ title, ...props }) => {
   const incrementRoom = (event) => {
     setRoom({
       ...room,
-      [event.target.name]: room[event.target.name] + 1,
+      [event.target.id]: room[event.target.id] + 1,
     });
   };
 
   const decrementRoom = (event) => {
-    setRoom({
-      ...room,
-      [event.target.name]: room[event.target.name] - 1,
-    });
+    const target = event.target.id;
+    room[target] !== 0 &&
+      setRoom({
+        ...room,
+        [target]: room[target] - 1,
+      });
   };
 
   const incrementGuest = (event) => {
     setGuest({
       ...guest,
-      [event.target.name]: guest[event.target.name] + 1,
+      [event.target.id]: guest[event.target.id] + 1,
     });
   };
 
   const decrementGuest = (event) => {
-    setGuest({
-      ...guest,
-      [event.target.name]: guest[event.target.name] - 1,
-    });
+    const target = event.target.id;
+    guest[target] !== 0 &&
+      setGuest({
+        ...guest,
+        [target]: guest[target] - 1,
+      });
   };
 
   const hanleSpace = (key) => {
@@ -76,7 +80,9 @@ export const Dropdown = ({ title, ...props }) => {
   return (
     <div className={cn(styles.dropdown)} {...props}>
       <div
-        className={styles.dropdownTitle}
+        className={cn(styles.dropdownTitle, {
+          [styles.dropdownTitleClose]: isAccordionOpened == false,
+        })}
         onClick={() => setIsAccordionOpened(!isAccordionOpened)}
         tabIndex={0}
         onKeyDown={(key) => hanleSpace(key)}
@@ -110,25 +116,25 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">спальни</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="bedrooms"
+                  id="bedrooms"
                   onClick={decrementRoom}
-                  disabled={room.bedrooms == 0}
+                  
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {' '}
                   {room.bedrooms}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="bedrooms"
+                  id="bedrooms"
                   onClick={incrementRoom}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
 
@@ -137,25 +143,25 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">кровати</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="beds"
+                  id="beds"
                   onClick={decrementRoom}
-                  disabled={room.beds == 0}
+              
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {' '}
                   {room.beds}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="beds"
+                  id="beds"
                   onClick={incrementRoom}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
 
@@ -164,25 +170,25 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">Ванные комнаты</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="bathrooms"
+                  id="bathrooms"
                   onClick={decrementRoom}
-                  disabled={room.bathrooms == 0}
+                
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {' '}
                   {room.bathrooms}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="bathrooms"
+                  id="bathrooms"
                   onClick={incrementRoom}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -193,25 +199,25 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">взрослые</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="adult"
+                  id="adult"
                   onClick={decrementGuest}
-                  disabled={guest.adult == 0}
+                
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {' '}
                   {guest.adult}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="adult"
+                  id="adult"
                   onClick={incrementGuest}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
 
@@ -220,25 +226,25 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">дети</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="children"
+                  id="children"
                   onClick={decrementGuest}
-                  disabled={guest.children == 0}
+                  
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {' '}
                   {guest.children}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="children"
+                  id="children"
                   onClick={incrementGuest}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
 
@@ -247,24 +253,24 @@ export const Dropdown = ({ title, ...props }) => {
                 <Htag tag="h3">младенцы</Htag>
               </div>
               <div className={styles.counter}>
-                <button
+                <div
                   className={styles.button}
-                  name="baby"
+                  id="baby"
                   onClick={decrementGuest}
-                  disabled={guest.baby == 0}
+                  
                 >
                   -
-                </button>
+                </div>
                 <Htag className={styles.value} tag="h3">
                   {guest.baby}
                 </Htag>
-                <button
+                <div
                   className={styles.button}
-                  name="baby"
+                  id="baby"
                   onClick={incrementGuest}
                 >
                   +
-                </button>
+                </div>
               </div>
             </div>
           </div>
