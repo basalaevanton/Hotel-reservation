@@ -14,3 +14,4 @@ export * from './Accordion/Accordion';
 export * from './Dropdown/Dropdown';
 export * from './Modal/Modal';
 export * from './Up/Up';
+export * from './Card/Card';

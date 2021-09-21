@@ -21,7 +21,7 @@ import { withLayout } from '../layout/Layout';
 
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import db from '../lib/firebase';
-import { LoginForm } from '../components';
+import { LoginForm } from '../pageComponents';
 
 const SignIn: NextPage = () => {
 

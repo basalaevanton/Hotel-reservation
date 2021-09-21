@@ -18,7 +18,7 @@ import type { NextPage } from 'next';
 import 'normalize.css';
 import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
-import { IndexForm } from '../components';
+import { IndexForm } from '../pageComponents';
 
 const Home: NextPage = () => {
   return (

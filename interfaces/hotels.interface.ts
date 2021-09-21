@@ -61,7 +61,7 @@ export interface RoomType {
   images: Image2[];
 }
 
-export interface Datum {
+export interface Datum extends Record<string, unknown> {
   hotelId: string;
   name: string;
   currency: string;
@@ -94,4 +94,9 @@ export interface Pagination {
 export interface HotelsRoot extends Record<string, unknown> {
   hotels: Datum[];
   pagination: Pagination;
+}
+
+export interface HotelRoot extends Record<string, unknown> {
+  hotel: Datum;
+  // pagination: Pagination;
 }

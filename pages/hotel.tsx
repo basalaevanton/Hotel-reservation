@@ -21,20 +21,25 @@ import { withLayout } from '../layout/Layout';
 
 import { useActions, useTypedSelector } from '../hooks';
 import axios from 'axios';
-import { HotelsRoot } from '../interfaces/hotels.interface';
+import { Datum, HotelRoot } from '../interfaces/hotels.interface';
 import { GetStaticProps, NextPage } from 'next';
 import { HotelCard } from '../components';
-import { HotelsPage } from '../pageComponents';
 
-function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
-  return <HotelsPage hotels={hotels} />;
+function Hotel({ hotel }: HotelRoot): JSX.Element {
+  
+
+  return (
+    <div>
+      <HotelCard hotel={hotel} />
+    </div>
+  );
 }
 
-export default withLayout(Hotels);
+export default withLayout(Hotel);
 
-export const getStaticProps: GetStaticProps<HotelsRoot> = async () => {
-  const { data: hotels, data: pagination } = await axios.get(
-    'https://sandbox.impala.travel/v1/hotels?size=10',
+export const getStaticProps: GetStaticProps<HotelRoot> = async () => {
+  const { data: hotels } = await axios.get(
+    'https://sandbox.impala.travel/v1/hotels/f63b534a-d39d-4199-ba47-32650695102b',
     {
       headers: {
         'x-api-key': 'sandb_YrV4L6IgNyrbsyuHwmAbgPmcUkjznr7W9Oa325a3',
@@ -43,6 +48,6 @@ export const getStaticProps: GetStaticProps<HotelsRoot> = async () => {
   );
 
   return {
-    props: { hotels: hotels.data, pagination: pagination.pagination },
+    props: { hotel: hotels },
   };
 };

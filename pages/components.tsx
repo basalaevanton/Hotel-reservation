@@ -13,6 +13,7 @@ import {
   Accordion,
   Dropdown,
   Modal,
+  Card,
 } from '../componentsUI';
 import type { NextPage } from 'next';
 import 'normalize.css';
@@ -73,7 +74,8 @@ const Home: NextPage = () => {
           <h1> NextJs app...</h1>
           <h2>Hello World!</h2>
         </>
-
+        <Card type="hotel">123</Card>
+        <Card type="room">123</Card>
         <Button appearance="primary">click on me</Button>
 
         <Button appearance="ghost">click on me</Button>

@@ -1,0 +1,35 @@
+.hotelCard {
+	padding: 10px;
+}
+
+.hotel {
+	display: flex;
+}
+
+.hotelInfo {
+	display: grid;
+
+	margin-left: 15px;
+}
+
+.hotelImg {
+	position: relative;
+
+	overflow: hidden;
+
+	min-width: 380px;
+	height: 240px;
+
+	border-radius: 10px;
+
+	& img {
+		position: absolute;
+
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.hotelDescription {
+	margin-top: 15px;
+}
