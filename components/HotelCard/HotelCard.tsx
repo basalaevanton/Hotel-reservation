@@ -6,14 +6,13 @@ import React, { forwardRef, ForwardedRef } from 'react';
 import { Card, Htag, P, Rating } from '../../componentsUI';
 
 import Flag from 'react-world-flags';
+import Link from 'next/link';
 
 export const HotelCard = forwardRef(
   (
     { hotel, className, ...props }: HotelCardProps,
     ref: ForwardedRef<HTMLDivElement>
   ): JSX.Element => {
-    console.log(hotel);
-
     let hotelImg = 'https://via.placeholder.com/380x240';
     hotel.images.map((img) => {
       return img.isHeroImage == true ? (hotelImg = img.url) : hotelImg;
@@ -29,8 +28,14 @@ export const HotelCard = forwardRef(
           <div className={styles.hotelImg}>
             <img src={hotelImg} alt={hotel.name} />
           </div>
+
           <div className={styles.hotelInfo}>
-            <Htag tag="h2">{hotel.name}</Htag>
+            <Link href={`/hotels/${encodeURIComponent(hotel.hotelId)}`}>
+              <a>
+                <Htag tag="h2">{hotel.name}</Htag>
+              </a>
+            </Link>
+
             <Htag tag="h3">
               <Flag code={hotel.address.country} height="16" />{' '}
               {hotel.address.countryName}, {hotel.address.city}
