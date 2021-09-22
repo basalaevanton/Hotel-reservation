@@ -25,6 +25,7 @@ import { HotelsRoot } from '../interfaces/hotels.interface';
 import { GetStaticProps, NextPage } from 'next';
 import { HotelCard } from '../components';
 import { HotelsPage } from '../pageComponents';
+import { API } from '../helpers/api';
 
 function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
   return <HotelsPage hotels={hotels} />;
@@ -34,10 +35,10 @@ export default withLayout(Hotels);
 
 export const getStaticProps: GetStaticProps<HotelsRoot> = async () => {
   const { data: hotels, data: pagination } = await axios.get(
-    'https://sandbox.impala.travel/v1/hotels?size=10',
+    API.HOST + '?size=10',
     {
       headers: {
-        'x-api-key': 'sandb_YrV4L6IgNyrbsyuHwmAbgPmcUkjznr7W9Oa325a3',
+        'x-api-key': API.KEY,
       },
     }
   );

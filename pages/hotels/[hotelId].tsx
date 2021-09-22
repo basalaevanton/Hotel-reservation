@@ -25,6 +25,7 @@ import { Datum, HotelRoot } from '../../interfaces/hotels.interface';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { HotelCard } from '../../components';
 import { RoomsPage } from '../../pageComponents';
+import { API } from '../../helpers/api';
 
 function Hotel({ hotel }: HotelRoot): JSX.Element {
   return (
@@ -38,11 +39,11 @@ export default withLayout(Hotel);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await axios.get(
-    'https://sandbox.impala.travel/v1' + '/hotels?size=10',
+    API.HOST + '?size=10',
 
     {
       headers: {
-        'x-api-key': 'sandb_YrV4L6IgNyrbsyuHwmAbgPmcUkjznr7W9Oa325a3',
+        'x-api-key': API.KEY,
       },
     }
   );
@@ -61,11 +62,11 @@ export const getStaticProps: GetStaticProps<HotelRoot> = async ({ params }) => {
   }
 
   const { data: hotel } = await axios.get(
-    'https://sandbox.impala.travel/v1' + '/hotels/' + params.hotelId,
-   
+    API.HOST + '/' + params.hotelId,
+
     {
       headers: {
-        'x-api-key': 'sandb_YrV4L6IgNyrbsyuHwmAbgPmcUkjznr7W9Oa325a3',
+        'x-api-key': API.KEY,
       },
     }
   );

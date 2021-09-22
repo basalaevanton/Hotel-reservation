@@ -16,7 +16,10 @@
 	position: relative;
 	z-index: 1;
 
+	display: flex;
+
 	overflow: hidden;
+	align-items: center;
 
 	min-width: 380px;
 	height: 240px;
@@ -28,9 +31,25 @@
 
 		max-width: 100%;
 		height: auto;
+
+		border-radius: 10px;
 	}
+}
+
+.hotelInfoFoter {
+	display: flex;
+	flex-direction: row;
 }
 
 .hotelDescription {
 	margin-top: 15px;
+	margin-right: 20px;
+	padding: 5px 5px 15px 15px;
+}
+
+.hotelBtn {
+	display: flex;
+	align-items: center;
+
+	padding-right: 15px;
 }

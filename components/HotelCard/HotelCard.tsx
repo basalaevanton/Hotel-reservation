@@ -3,7 +3,7 @@ import styles from './HotelCard.module.scss';
 
 import cn from 'classnames';
 import React, { forwardRef, ForwardedRef } from 'react';
-import { Card, Htag, P, Rating } from '../../componentsUI';
+import { Button, Card, Htag, P, Rating } from '../../componentsUI';
 
 import Flag from 'react-world-flags';
 import Link from 'next/link';
@@ -45,7 +45,16 @@ export const HotelCard = forwardRef(
             <P> currency: {hotel.currency}</P>
           </div>
         </div>
-        <P className={styles.hotelDescription}>{hotel.description.short}</P>
+        <div className={styles.hotelInfoFoter}>
+          <P className={styles.hotelDescription}>{hotel.description.short}</P>
+          <div className={styles.hotelBtn}>
+            <Link href={`/hotels/${encodeURIComponent(hotel.hotelId)}`}>
+              <a>
+                <Button border="ghost">Номера</Button>
+              </a>
+            </Link>
+          </div>
+        </div>
       </Card>
     );
   }
