@@ -98,5 +98,7 @@ export interface HotelsRoot extends Record<string, unknown> {
 
 export interface HotelRoot extends Record<string, unknown> {
   hotel: Datum;
-  // pagination: Pagination;
+}
+export interface RoomRoot extends Record<string, unknown> {
+  room: RoomType;
 }

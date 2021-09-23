@@ -28,6 +28,17 @@ import { HotelsPage } from '../pageComponents';
 import { API } from '../helpers/api';
 
 function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
+  const pages = [];
+  for (const el of hotels) {
+    pages.push({
+      params: {
+        rooms: '/hotels/' + el.hotelId,
+        room: el.roomTypes.map((id: { roomTypeId: any }) => id.roomTypeId),
+      },
+    });
+  }
+  
+
   return <HotelsPage hotels={hotels} />;
 }
 
@@ -35,7 +46,7 @@ export default withLayout(Hotels);
 
 export const getStaticProps: GetStaticProps<HotelsRoot> = async () => {
   const { data: hotels, data: pagination } = await axios.get(
-    API.HOST + '?size=10',
+    API.HOST + '?size=2',
     {
       headers: {
         'x-api-key': API.KEY,

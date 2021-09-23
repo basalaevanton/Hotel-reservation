@@ -27,7 +27,9 @@ import { HotelCard } from '../../components';
 import { RoomsPage } from '../../pageComponents';
 import { API } from '../../helpers/api';
 
-function Hotel({ hotel }: HotelRoot): JSX.Element {
+function Rooms({ hotel }: HotelRoot): JSX.Element {
+  
+
   return (
     <div>
       <RoomsPage hotel={hotel} />
@@ -35,11 +37,11 @@ function Hotel({ hotel }: HotelRoot): JSX.Element {
   );
 }
 
-export default withLayout(Hotel);
+export default withLayout(Rooms);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await axios.get(
-    API.HOST + '?size=10',
+    API.HOST + '?size=2',
 
     {
       headers: {
@@ -55,6 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<HotelRoot> = async ({ params }) => {
+  
   if (!params) {
     return {
       notFound: true,
@@ -62,7 +65,7 @@ export const getStaticProps: GetStaticProps<HotelRoot> = async ({ params }) => {
   }
 
   const { data: hotel } = await axios.get(
-    API.HOST + '/' + params.hotelId,
+    API.HOST + '/' + params.rooms,
 
     {
       headers: {
