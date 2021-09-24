@@ -17,8 +17,6 @@ import { useIsMedium } from '../../hooks/mediaQueries';
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const isMedium = useIsMedium();
-  
-
 
   const variants = !isMedium
     ? {
@@ -38,14 +36,14 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         opened: {
           opacity: 1,
           height: 'auto',
-          x: 0,
+          // x: 0,
           transition: { stiffness: 20 },
           display: 'flex',
         },
         closed: {
           opacity: 0,
           height: 0,
-          x: '100%',
+          // y: '100%',
           transitionEnd: {
             display: 'none',
           },
@@ -56,7 +54,11 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
     <header className={cn(className, styles.header)} {...props}>
       <Link href="/">
         <a>
-          <Logo className={styles.logo} />
+          <Logo
+            className={cn(styles.logo, {
+              [styles.logoNone]: isOpened,
+            })}
+          />
         </a>
       </Link>
 

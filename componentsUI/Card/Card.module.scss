@@ -1,4 +1,5 @@
 .card {
+	height: fit-content;
 	margin: 15px;
 
 	border-radius: 5px;
@@ -7,11 +8,48 @@
 }
 
 .hotel {
-	width: 726px;
+	max-width: 680px;
 	min-height: 341px;
 }
 
 .room {
-	width: 270px;
+	width: 100%;
 	min-height: 257.5px;
+}
+
+@media (min-width: 1050px) {
+	.hotel {
+		max-width: 450px;
+	}
+}
+
+@media (min-width: 1150px) {
+	.hotel {
+		max-width: 510px;
+	}
+}
+
+@media (min-width: 1250px) {
+	.hotel {
+		max-width: 560px;
+	}
+}
+
+@media (min-width: 1350px) {
+	.hotel {
+		max-width: 620px;
+	}
+}
+
+@media (min-width: 1450px) {
+	.hotel {
+		max-width: 680px;
+	}
+}
+
+@media (max-width: 640px) {
+	.hotel {
+		width: -webkit-fill-available;
+		min-height: auto;
+	}
 }

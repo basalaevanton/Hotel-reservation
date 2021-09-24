@@ -28,17 +28,6 @@ import { HotelsPage } from '../pageComponents';
 import { API } from '../helpers/api';
 
 function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
-  const pages = [];
-  for (const el of hotels) {
-    pages.push({
-      params: {
-        rooms: '/hotels/' + el.hotelId,
-        room: el.roomTypes.map((id: { roomTypeId: any }) => id.roomTypeId),
-      },
-    });
-  }
-  
-
   return <HotelsPage hotels={hotels} />;
 }
 

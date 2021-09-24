@@ -16,10 +16,16 @@ import cn from 'classnames';
 import { RoomCard } from '../../components';
 
 export const RoomsPage = ({ hotel }: RoomsPageProps): JSX.Element => {
+  console.log(hotel);
+
   return (
     <div className={styles.roomWrapper}>
       {hotel.roomTypes.map((room) => {
-        return <RoomCard key={room.roomTypeId} room={room} />;
+        return (
+          <>
+            <RoomCard key={room.roomTypeId} room={room} />;
+          </>
+        );
       })}
     </div>
   );

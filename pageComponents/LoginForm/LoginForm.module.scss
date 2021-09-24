@@ -3,6 +3,7 @@
 
 	height: fit-content;
 	margin-top: 20px;
+	margin-bottom: 15px;
 	padding: 40px 30px;
 
 	background-color: var(--white);
@@ -95,5 +96,12 @@
 
 	&:hover {
 		border-color: var(--dark75);
+	}
+}
+
+@media (max-width: 410px) {
+	.loginForm {
+		width: 290px;
+		padding: 20px 10px;
 	}
 }

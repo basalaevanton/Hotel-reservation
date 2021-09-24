@@ -28,13 +28,7 @@ import { RoomsPage } from '../../pageComponents';
 import { API } from '../../helpers/api';
 
 function Rooms({ hotel }: HotelRoot): JSX.Element {
-  
-
-  return (
-    <div>
-      <RoomsPage hotel={hotel} />
-    </div>
-  );
+  return <RoomsPage hotel={hotel} />;
 }
 
 export default withLayout(Rooms);
@@ -57,7 +51,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<HotelRoot> = async ({ params }) => {
-  
   if (!params) {
     return {
       notFound: true,
