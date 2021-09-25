@@ -30,7 +30,7 @@ export const HotelCard = forwardRef(
           </div>
 
           <div className={styles.hotelInfo}>
-            <Link href={`/hotels/${encodeURIComponent(hotel.hotelId)}`}>
+            <Link href="/hotels/[hotel]" as={`/hotels/${hotel.hotelId}`}>
               <a>
                 <Htag tag="h2">{hotel.name}</Htag>
               </a>
@@ -48,7 +48,7 @@ export const HotelCard = forwardRef(
         <div className={styles.hotelInfoFoter}>
           <P className={styles.hotelDescription}>{hotel.description.short}</P>
           <div className={styles.hotelBtn}>
-            <Link href={`/hotels/${encodeURIComponent(hotel.hotelId)}`}>
+            <Link href="/hotels/[hotel]" as={`/hotels/${hotel.hotelId}`}>
               <a>
                 <Button border="ghost">Номера</Button>
               </a>
