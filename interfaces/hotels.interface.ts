@@ -94,6 +94,7 @@ export interface Pagination {
 export interface HotelsRoot extends Record<string, unknown> {
   hotels: Datum[];
   pagination: Pagination;
+  page: number;
 }
 
 export interface HotelRoot extends Record<string, unknown> {

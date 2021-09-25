@@ -89,9 +89,9 @@
 	cursor: default;
 	pointer-events: none;
 
-	color: var(--dark50);
-	border: none;
-	background: none;
+	color: var(--dark100);
+	border: var(--dark50);
+	background: var(--dark50);
 
 	&:hover {
 		background: none;
@@ -104,4 +104,47 @@
 
 	height: 15px;
 	margin-left: 10px;
+}
+
+.primaryPagination {
+	border-radius: 22px;
+
+	background-image:
+		linear-gradient(
+			to right,
+			#6FCF97 0%,
+			#66D2EA 51%,
+			#6FCF97 100%
+		);
+
+	background-size: 200% auto;
+
+	&:hover {
+		text-decoration: none;
+
+		color: #FFF;
+		background-position: right center; /* change the direction of the change here */
+	}
+}
+
+.activePagination {
+	cursor: auto;
+
+	border-radius: 22px;
+
+	background-image:
+		linear-gradient(
+			to right,
+			#B46FCF 0%,
+			#66D2EA 51%,
+			#82CF6F 100%
+		);
+
+	background-size: 200% auto;
+	// &:hover {
+	//   text-decoration: none;
+
+	//   color: #fff;
+	//   background-position: right center; /* change the direction of the change here */
+	// }
 }

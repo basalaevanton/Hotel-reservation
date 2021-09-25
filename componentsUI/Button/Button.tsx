@@ -8,6 +8,7 @@ export const Button = ({
   children,
   appearance,
   border,
+  pagination,
   unactive = false,
   arrow = 'none',
   className,
@@ -21,6 +22,10 @@ export const Button = ({
 
         [styles.primaryBorder]: border == 'primary',
         [styles.ghostBorder]: border == 'ghost',
+
+        [styles.primaryPagination]: pagination == 'primary',
+        [styles.activePagination]: pagination == 'active',
+        
 
         [styles.unactive]: unactive == true,
       })}

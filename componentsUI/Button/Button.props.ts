@@ -10,6 +10,7 @@ export interface ButtonProps
   > {
   children?: ReactNode;
   appearance?: 'primary' | 'ghost';
+  pagination?: 'primary'|'active';
   border?: 'primary' | 'ghost';
   arrow?: 'right' | 'none';
   unactive?: boolean;

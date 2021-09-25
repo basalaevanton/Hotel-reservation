@@ -27,10 +27,10 @@ import { HotelCard } from '../components';
 import { HotelsPage } from '../pageComponents';
 import { API } from '../helpers/api';
 
-function Hotels({ hotels, pagination }: HotelsRoot): JSX.Element {
-  console.log(pagination);
+function Hotels({ hotels, pagination, page }: HotelsRoot): JSX.Element {
+  const totalHotels = pagination.total;
 
-  return <HotelsPage hotels={hotels} />;
+  return <HotelsPage hotels={hotels} page={page} totalHotels={totalHotels} />;
 }
 
 export default withLayout(Hotels);
@@ -50,9 +50,13 @@ export default withLayout(Hotels);
 //   };
 // };
 
-export const getServerSideProps: GetServerSideProps<HotelsRoot> = async () => {
+export const getServerSideProps: GetServerSideProps<HotelsRoot> = async ({
+  query: { page = 1 },
+}) => {
+  const start = +page === 1 ? 0 : (+page - 1) * 10;
+
   const { data: hotels, data: pagination } = await axios.get(
-    API.HOST + '?size=10',
+    API.HOST + `?size=10&offset=${start}`,
     {
       headers: {
         'x-api-key': API.KEY,
@@ -61,6 +65,10 @@ export const getServerSideProps: GetServerSideProps<HotelsRoot> = async () => {
   );
 
   return {
-    props: { hotels: hotels.data, pagination: pagination.pagination },
+    props: {
+      hotels: hotels.data,
+      pagination: pagination.pagination,
+      page: +page,
+    },
   };
 };
