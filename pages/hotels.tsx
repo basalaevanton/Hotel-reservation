@@ -1,29 +1,14 @@
-import {
-  Button,
-  Htag,
-  P,
-  Input,
-  ButtonIcon,
-  TagIcon,
-  Rating,
-  Checkbox,
-  RadioInput,
-  Switch,
-  RangeInput,
-  Accordion,
-  Dropdown,
-  Modal,
-} from '../componentsUI';
+
 
 import 'normalize.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { withLayout } from '../layout/Layout';
 
-import { useActions, useTypedSelector } from '../hooks';
+
 import axios from 'axios';
 import { HotelsRoot } from '../interfaces/hotels.interface';
-import { GetServerSideProps, GetStaticProps, NextPage } from 'next';
-import { HotelCard } from '../components';
+import { GetServerSideProps } from 'next';
+
 import { HotelsPage } from '../pageComponents';
 import { API } from '../helpers/api';
 

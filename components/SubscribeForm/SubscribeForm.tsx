@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { SubscribeFormProps, EmailForm } from './SubscribeForm.props';
 import styles from './SubscribeForm.module.scss';
 import { Input } from '../../componentsUI';
 
 import CloseIcon from './close.svg';
 
-import cn from 'classnames';
 
 import { useForm } from 'react-hook-form';
 
 import {
   addDoc,
   collection,
-  doc,
+  
   query,
   where,
   getDocs,

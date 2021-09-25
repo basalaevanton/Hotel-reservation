@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
+
 import { SearchFormProps } from './SearchForm';
 import { SearchForm } from './SearchForm.intrerface';
 
 import styles from './SearchForm.module.scss';
 import {
   Accordion,
-  Button,
+ 
   Checkbox,
   Dropdown,
   Htag,
   Input,
-  Modal,
-  P,
-  RadioInput,
+
+
   RangeInput,
-  Switch,
+ 
 } from '../../componentsUI';
 
-import cn from 'classnames';
+
 
 export const SidebarSearchForm = ({
   ...props

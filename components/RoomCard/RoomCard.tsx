@@ -3,9 +3,9 @@ import styles from './RoomCard.module.scss';
 
 import cn from 'classnames';
 import React, { forwardRef, ForwardedRef } from 'react';
-import { Button, Card, Htag, P, Rating } from '../../componentsUI';
+import { Button, Card, Htag, P,  } from '../../componentsUI';
 
-import Flag from 'react-world-flags';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -33,7 +33,7 @@ export const RoomCard = forwardRef(
         </div>
         <div className={styles.roomInfo}>
           <Link
-            href="/hotels/[hotel]/[room]"
+            href="/hotels/[hotel]/[hotelRoom]"
             as={`${router.asPath}/${room.roomTypeId}`}
           >
             <a>
@@ -44,7 +44,7 @@ export const RoomCard = forwardRef(
           <P className={styles.roomDescription}>{room.description}</P>
           <div className={styles.roomBtn}>
             <Link
-              href="/hotels/[hotel]/[room]"
+              href="/hotels/[hotel]/[hotelRoom]"
               as={`${router.asPath}/${room.roomTypeId}`}
             >
               <a>

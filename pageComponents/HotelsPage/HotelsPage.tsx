@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { HotelsPageProps } from './HotelsPage.props';
 
 import styles from './HotelsPage.module.scss';
 import {
   Button,
-  ButtonIcon,
-  Htag,
-  Input,
-  Modal,
-  RadioInput,
-  Switch,
+
 } from '../../componentsUI';
 
-import cn from 'classnames';
 import { HotelCard } from '../../components';
 import router from 'next/router';
 

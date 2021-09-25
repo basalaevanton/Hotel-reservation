@@ -1,31 +1,12 @@
-import {
-  Button,
-  Htag,
-  P,
-  Input,
-  ButtonIcon,
-  TagIcon,
-  Rating,
-  Checkbox,
-  RadioInput,
-  Switch,
-  RangeInput,
-  Accordion,
-  Dropdown,
-  Modal,
-} from '../componentsUI';
 import type { NextPage } from 'next';
 import 'normalize.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { withLayout } from '../layout/Layout';
 import { IndexForm } from '../pageComponents';
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <IndexForm />
-    </div>
-  );
+  
+  return <IndexForm />;
 };
 
 export default withLayout(Home);

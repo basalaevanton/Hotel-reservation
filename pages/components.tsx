@@ -12,7 +12,6 @@ import {
   RangeInput,
   Accordion,
   Dropdown,
-  Modal,
   Card,
 } from '../componentsUI';
 import type { NextPage } from 'next';

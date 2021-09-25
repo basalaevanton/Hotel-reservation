@@ -1,14 +1,12 @@
 import 'normalize.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { withLayout } from '../../../layout/Layout';
 
 import axios from 'axios';
-import { Datum, RoomRoot } from '../../../interfaces/hotels.interface';
+import {  RoomRoot } from '../../../interfaces/hotels.interface';
 import {
   GetServerSideProps,
-  GetStaticPaths,
-  GetStaticProps,
-  NextPage,
+  
 } from 'next';
 
 import { HotelRoomPage } from '../../../pageComponents';
@@ -41,7 +39,7 @@ export const getServerSideProps: GetServerSideProps<RoomRoot> = async ({
 
   const room = rooms.roomTypes.find(
     (el: { roomTypeId: string | string[] | undefined }) =>
-      el.roomTypeId == params.room
+      el.roomTypeId == params.hotelRoom
   );
 
   return {
