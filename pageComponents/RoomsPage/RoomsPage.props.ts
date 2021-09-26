@@ -1,5 +1,5 @@
-import { Datum } from '../../interfaces/hotels.interface';
+import { Hotel } from '../../interfaces/hotels.interface';
 
 export interface RoomsPageProps {
-  hotel: Datum;
+  hotel: Hotel;
 }

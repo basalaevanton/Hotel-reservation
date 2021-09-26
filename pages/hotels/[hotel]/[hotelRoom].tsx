@@ -3,21 +3,45 @@ import React from 'react';
 import { withLayout } from '../../../layout/Layout';
 
 import axios from 'axios';
-import {  RoomRoot } from '../../../interfaces/hotels.interface';
-import {
-  GetServerSideProps,
-  
-} from 'next';
+import { RoomRoot, RoomType } from '../../../interfaces/hotels.interface';
+import { GetServerSideProps } from 'next';
 
 import { HotelRoomPage } from '../../../pageComponents';
 import { API } from '../../../helpers/api';
+import { useRouter } from 'next/router';
+import {
+  RatePlane,
+  ratesPlan,
+  RoomTypeRate,
+} from '../../../interfaces/ratePlanes.inteface';
 
-function HotelRoom({ room }: RoomRoot): JSX.Element {
-  return (
-    <div>
-      <HotelRoomPage room={room} />
-    </div>
+export interface myRatePlane {
+  desription: string;
+  roomTypes: RoomTypeRate | undefined;
+}
+
+function HotelRoom({ room, ratePlan }: RoomRoot): JSX.Element {
+  const router = useRouter();
+  const idRoom = router.asPath.substring(router.asPath.lastIndexOf('/') + 1);
+
+  const ratePlans: myRatePlane[] = [];
+
+  let rate: myRatePlane = { desription: '', roomTypes: {} };
+
+  ratePlan.data.map((plane) =>
+    plane.components.map((el) => {
+      el.includedInRate == true &&
+        ((rate.desription = plane.description),
+        (rate.roomTypes = plane.roomTypes.find(
+          (room) => room.roomTypeId == idRoom
+        )),
+        ratePlans.push(rate),
+        (rate = { desription: '', roomTypes: {} }));
+    })
   );
+
+
+  return <HotelRoomPage room={room} ratePlans={ratePlans} />;
 }
 
 export default withLayout(HotelRoom);
@@ -36,6 +60,14 @@ export const getServerSideProps: GetServerSideProps<RoomRoot> = async ({
       'x-api-key': API.KEY,
     },
   });
+  const { data: rate } = await axios.get(
+    API.HOST + '/' + params.hotel + '/rate-plans',
+    {
+      headers: {
+        'x-api-key': API.KEY,
+      },
+    }
+  );
 
   const room = rooms.roomTypes.find(
     (el: { roomTypeId: string | string[] | undefined }) =>
@@ -43,7 +75,7 @@ export const getServerSideProps: GetServerSideProps<RoomRoot> = async ({
   );
 
   return {
-    props: { room: room },
+    props: { room: room, ratePlan: rate },
   };
 };
 

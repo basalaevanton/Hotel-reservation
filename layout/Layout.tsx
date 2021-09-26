@@ -30,7 +30,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     >
       <Header className={styles.header} />
 
-      {router.pathname !== '/search' && (
+      {router.pathname !== ('/search' && '/hotels/[hotel]/[hotelRoom]') && (
         <div
           className={cn(styles.body, {
             [styles.background1]: randomBackground == 1,
@@ -48,7 +48,11 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           <div className={styles.body}>{children}</div>
         </>
       )}
-
+      {router.pathname === '/hotels/[hotel]/[hotelRoom]' && (
+        <>
+          <div className={styles.body}>{children}</div>
+        </>
+      )}
       <Footer className={styles.footer} />
       <Up />
     </div>

@@ -1,3 +1,5 @@
+import { RatePlans } from './ratePlanes.inteface';
+
 export interface Description {
   short: string;
 }
@@ -61,7 +63,7 @@ export interface RoomType {
   images: Image2[];
 }
 
-export interface Datum extends Record<string, unknown> {
+export interface Hotel extends Record<string, unknown> {
   hotelId: string;
   name: string;
   currency: string;
@@ -92,14 +94,16 @@ export interface Pagination {
 }
 
 export interface HotelsRoot extends Record<string, unknown> {
-  hotels: Datum[];
+  hotels: Hotel[];
   pagination: Pagination;
   page: number;
 }
 
 export interface HotelRoot extends Record<string, unknown> {
-  hotel: Datum;
+  hotel: Hotel;
 }
+
 export interface RoomRoot extends Record<string, unknown> {
   room: RoomType;
+  ratePlan: RatePlans;
 }
