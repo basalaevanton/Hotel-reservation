@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { IndexFormProps } from './IndexForm.props';
 import { searchIndexForm } from './searchIndexForm.intrerface';
@@ -25,6 +25,15 @@ import MaskedTextInput from 'react-text-mask';
 
 import { useTypedSelector, useActions } from '../../hooks';
 
+import countries from 'i18n-iso-countries';
+import { useRouter } from 'next/router';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+countries.registerLocale(require('i18n-iso-countries/langs/ru.json'));
+
+import { countriesData } from '../../helpers/countryData';
+
 export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
   const {
     register,
@@ -32,22 +41,26 @@ export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<searchIndexForm>();
-  //
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
-  //
-  const [isSuccess, setIsSuccess] = useState<string>('');
-  const [error, setIsError] = useState<string>('');
+  } = useForm();
 
-  const onSubmit = (data: searchIndexForm) => {
+  const [country, setCountry] = useState(null);
+
+  const handleChange = (data: any) => {
     console.log(data);
   };
 
   return (
     <div className={styles.indexForm}>
       <Htag tag="h1">Найдём номера под ваши пожелания</Htag>
-      <form onSubmit={handleSubmit(onSubmit)} {...props}></form>
+
+      <form onSubmit={handleSubmit(handleChange)} {...props}>
+        <section>
+          <label>Выберите страну</label>
+          <Input />
+        </section>
+
+        <Button border="primary">Найти отели по стране</Button>
+      </form>
     </div>
   );
 };

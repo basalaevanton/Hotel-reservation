@@ -3,17 +3,13 @@ import React from 'react';
 import { withLayout } from '../../../layout/Layout';
 
 import axios from 'axios';
-import { RoomRoot, RoomType } from '../../../interfaces/hotels.interface';
+import { RoomRoot } from '../../../interfaces/hotels.interface';
 import { GetServerSideProps } from 'next';
 
 import { HotelRoomPage } from '../../../pageComponents';
 import { API } from '../../../helpers/api';
 import { useRouter } from 'next/router';
-import {
-  RatePlane,
-  ratesPlan,
-  RoomTypeRate,
-} from '../../../interfaces/ratePlanes.inteface';
+import { RoomTypeRate } from '../../../interfaces/ratePlanes.inteface';
 
 export interface myRatePlane {
   desription: string;
@@ -39,7 +35,6 @@ function HotelRoom({ room, ratePlan }: RoomRoot): JSX.Element {
         (rate = { desription: '', roomTypes: {} }));
     })
   );
-
 
   return <HotelRoomPage room={room} ratePlans={ratePlans} />;
 }

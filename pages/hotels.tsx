@@ -1,9 +1,6 @@
-
-
 import 'normalize.css';
 import React from 'react';
 import { withLayout } from '../layout/Layout';
-
 
 import axios from 'axios';
 import { HotelsRoot } from '../interfaces/hotels.interface';
