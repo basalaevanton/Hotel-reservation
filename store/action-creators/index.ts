@@ -1,4 +1,9 @@
-import * as UiActionCreators from '../action-creators/ui';
-import * as UserActionCreators from '../action-creators/user';
+import * as UiActionCreators from './ui';
+import * as UserActionCreators from './user';
+import * as HotelsActionCreators from './hotels';
 
-export default { ...UiActionCreators, ...UserActionCreators };
+export default {
+  ...UiActionCreators,
+  ...UserActionCreators,
+  ...HotelsActionCreators,
+};

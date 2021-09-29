@@ -2,21 +2,25 @@ import { Context, createWrapper } from 'next-redux-wrapper';
 import { createStore, Store, applyMiddleware, AnyAction } from 'redux';
 import { reducer, RootState } from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk, { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import thunkMiddleware, { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 // create a makeStore function
-const makeStore = (context: Context) =>
+const store = (context: Context) =>
   createStore(
     reducer,
     composeWithDevTools(
-      applyMiddleware(thunk)
+      applyMiddleware(thunkMiddleware)
       // other store enhancers if any
     )
   );
 
 // export an assembled wrapper
-export const wrapper = createWrapper<Store<RootState>>(makeStore, {
-  debug: true,
-});
+export const wrapper = createWrapper(
+  // <Store<RootState>>
+  store,
+  {
+    debug: true,
+  }
+);
 
 export type NextThunkDispatch = ThunkDispatch<RootState, void, AnyAction>;
