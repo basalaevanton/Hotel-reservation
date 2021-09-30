@@ -13,7 +13,7 @@
 - Firebase: firestore & auth, как серверная часть и для авторизации пользователя на сайте
 - Axios для запросов на сервер
 - SCSS для стилизации
-- для состояний Redux, Redux-thunk, next-redux-wrapper (не работает для  получения данных в стейт, в процессе реализации)
+- для состояний Redux, Redux-thunk, next-redux-wrapper 
 - Classnames для объединение classNames.
 - для форм react-hook-form
 - для анимации - framer motion

@@ -16,12 +16,13 @@ import {
 
 import cn from 'classnames';
 import { declOfNum } from '../../helpers/helpers';
+import { Rate } from '../../interfaces/ratePlanes.inteface';
 
 export const HotelRoomPage = ({
   room,
   ratePlans,
 }: HotelRoomPageProps): JSX.Element => {
- 
+
 
   return (
     <div className={styles.roomWrapper}>
@@ -44,11 +45,25 @@ export const HotelRoomPage = ({
             <div key={el.code}>{el.formatted}</div>
           ))}
         </Card>
-        {ratePlans.map((plan) => (
-          <Card type="room">
+        {ratePlans.map((plan, id) => (
+          <Card key={id} type="room">
             <Htag tag="h1">{plan.desription}</Htag>
             <P>{plan.roomTypes?.name}</P>
-            <P>{plan.roomTypes?.maxOccupancy}</P>
+
+            {plan.roomTypes?.dates
+              ?.find((date) => date.closed == false)
+              ?.rates.map((rate, id) => (
+                <Card key={id} type="room">
+                  <Htag tag="h1">прайс для {rate.adults} человек</Htag>
+                  <P>комнат в номере {rate.roomsSellable}</P>
+                  <P>
+                    {' '}
+                    цена номера {rate.retailRate.amount / 100}{' '}
+                    {rate.retailRate.currency.code}
+                  </P>
+                  <Button appearance="ghost">забронировать номер</Button>
+                </Card>
+              ))}
           </Card>
         ))}
       </section>
