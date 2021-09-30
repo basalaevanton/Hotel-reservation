@@ -32,6 +32,7 @@ countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 countries.registerLocale(require('i18n-iso-countries/langs/ru.json'));
 
+import ReactSelect from 'react-select';
 import { countriesData } from '../../helpers/countryData';
 
 export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
@@ -45,8 +46,12 @@ export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
 
   const [country, setCountry] = useState(null);
 
+  const router = useRouter();
+
   const handleChange = (data: any) => {
     console.log(data);
+    data.country?.code !== undefined &&
+      router.push('search/' + data.country.code);
   };
 
   return (
@@ -56,7 +61,23 @@ export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
       <form onSubmit={handleSubmit(handleChange)} {...props}>
         <section>
           <label>Выберите страну</label>
-          <Input />
+          <Input
+            value="GBR"
+            {...register('country2', {
+              // required: { value: true, message: 'Заполните имя' },
+            })}
+          />
+        </section>
+
+        <section>
+          <label>React Select</label>
+          <Controller
+            name="country"
+            control={control}
+            render={({ field }) => (
+              <ReactSelect {...field} options={countriesData} />
+            )}
+          />
         </section>
 
         <Button border="primary">Найти отели по стране</Button>

@@ -25,13 +25,16 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div
       className={cn(styles.wrapper, {
-        [styles.wrapperSidebar]: router.pathname === '/search',
+        [styles.wrapperSidebar]:
+          router.pathname === '/search' ||
+          router.pathname === '/search/[search]',
       })}
     >
       <Header className={styles.header} />
 
       {router.pathname !== '/hotels/[hotel]/[hotelRoom]' &&
-        router.pathname !== '/search' && (
+        router.pathname !== '/search' &&
+        router.pathname !== '/search/[search]' && (
           <div
             className={cn(styles.body, {
               [styles.background1]: randomBackground == 1,
@@ -44,7 +47,8 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           </div>
         )}
 
-      {router.pathname === '/search' && (
+      {(router.pathname === '/search' ||
+        router.pathname === '/search/[search]') && (
         <>
           <Sidebar className={styles.sidebar} />
           <div className={styles.body}>{children}</div>
