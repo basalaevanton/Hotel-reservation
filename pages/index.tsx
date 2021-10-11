@@ -9,7 +9,6 @@ import { wrapper } from '../store';
 import { getHotels } from '../store/action-creators/hotels';
 
 function Home({ hotels, pagination, page }: HotelsRoot): JSX.Element {
-  console.log(hotels);
   return <IndexForm />;
 }
 

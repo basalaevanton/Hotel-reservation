@@ -17,6 +17,11 @@
 	min-height: 257.5px;
 }
 
+.index {
+	min-width: auto;
+	height: fit-content;
+}
+
 @media (min-width: 1050px) {
 	.hotel {
 		max-width: 450px;

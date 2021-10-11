@@ -1,3 +1,41 @@
 .index {
-	color: #000;
+	margin-top: 75px;
+	padding: 25px 55px;
+}
+
+.indexForm {
+	display: flex;
+	flex-direction: row;
+
+	margin-top: 30px;
+	//   justify-content: space-between;
+}
+
+.reactSelect {
+	width: 400px;
+}
+
+.indexBtn {
+	margin-left: 25px;
+}
+
+.errorSearch {
+	color: var(--error);
+
+	font-weight: bold;
+}
+
+@media (max-width: 600px) {
+	.reactSelect {
+		width: auto;
+	}
+
+	.indexForm {
+		flex-direction: column;
+	}
+
+	.indexBtn {
+		margin-top: 15px;
+		margin-left: 0;
+	}
 }

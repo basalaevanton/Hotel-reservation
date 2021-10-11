@@ -7,6 +7,7 @@ import styles from './IndexForm.module.scss';
 import {
   Accordion,
   Button,
+  Card,
   Dropdown,
   Htag,
   Input,
@@ -49,39 +50,46 @@ export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
   const router = useRouter();
 
   const handleChange = (data: any) => {
-    console.log(data);
     data.country?.code !== undefined &&
       router.push('search/' + data.country.code);
   };
 
   return (
-    <div className={styles.indexForm}>
-      <Htag tag="h1">Найдём номера под ваши пожелания</Htag>
+    <Card type="index" className={styles.index}>
+      <Htag tag="h1">Подберем отели по стране</Htag>
 
-      <form onSubmit={handleSubmit(handleChange)} {...props}>
+      <form
+        className={styles.indexForm}
+        onSubmit={handleSubmit(handleChange)}
+        {...props}
+      >
         <section>
-          <label>Выберите страну</label>
-          <Input
-            value="GBR"
-            {...register('country2', {
-              // required: { value: true, message: 'Заполните имя' },
-            })}
-          />
-        </section>
-
-        <section>
-          <label>React Select</label>
+          {/* <label>Выберите страну</label> */}
           <Controller
             name="country"
             control={control}
+            rules={{
+              required: { value: true, message: 'Укажите страну' },
+            }}
             render={({ field }) => (
-              <ReactSelect {...field} options={countriesData} />
+              <ReactSelect
+                {...field}
+                className={styles.reactSelect}
+                options={countriesData}
+                placeholder="Введите страну"
+              />
             )}
           />
+
+        <span className={styles.errorSearch}>{errors.country?.message}</span>
         </section>
 
-        <Button border="primary">Найти отели по стране</Button>
+        <Button className={styles.indexBtn} border="primary">
+          Найти
+        </Button>
+
+
       </form>
-    </div>
+    </Card>
   );
 };

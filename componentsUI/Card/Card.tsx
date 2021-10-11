@@ -14,6 +14,7 @@ export const Card = forwardRef(
         className={cn(styles.card, className, {
           [styles.hotel]: type == 'hotel',
           [styles.room]: type == 'room',
+          [styles.index]: type == 'index',
         })}
         ref={ref}
         {...props}
