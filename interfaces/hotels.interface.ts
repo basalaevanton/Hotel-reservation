@@ -107,3 +107,10 @@ export interface RoomRoot extends Record<string, unknown> {
   room: RoomType;
   ratePlan: RatePlans;
 }
+
+
+export interface Hotels extends Record<string, unknown> {
+  hotels: Hotel[];
+  pagination: Pagination;
+  
+}

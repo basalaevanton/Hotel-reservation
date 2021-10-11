@@ -15,6 +15,7 @@ import { useAuthListener } from '../hooks';
 import { getAuth, signOut } from 'firebase/auth';
 import { doc, getDoc, getDocFromCache } from 'firebase/firestore';
 import db from '../lib/firebase';
+import { SidebarSearch } from './SidebarSearch/SidebarSearch';
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   const router = useRouter();
@@ -25,15 +26,15 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <div
       className={cn(styles.wrapper, {
-        [styles.wrapperSidebar]:
-          router.pathname === '/search' ||
-          router.pathname === '/search/[search]',
+        [styles.wrapperSidebar]: router.pathname === '/search',
+        // ||          router.pathname === '/search/[search]',
       })}
     >
       <Header className={styles.header} />
 
       {router.pathname !== '/hotels/[hotel]/[hotelRoom]' &&
         router.pathname !== '/search' &&
+        router.pathname !== '/search/map/[map]' &&
         router.pathname !== '/search/[search]' && (
           <div
             className={cn(styles.body, {
@@ -47,14 +48,22 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           </div>
         )}
 
-      {(router.pathname === '/search' ||
-        router.pathname === '/search/[search]') && (
+      {router.pathname === '/search' && (
         <>
           <Sidebar className={styles.sidebar} />
           <div className={styles.body}>{children}</div>
         </>
       )}
-      {router.pathname === '/hotels/[hotel]/[hotelRoom]' && (
+
+      {router.pathname === '/search/[search]' && (
+        <>
+          {/* <SidebarSearch className={styles.sidebar} /> */}
+          <div className={styles.body}>{children}</div>
+        </>
+      )}
+
+      {(router.pathname === '/hotels/[hotel]/[hotelRoom]' ||
+        router.pathname === '/search/map/[map]') && (
         <>
           <div className={styles.body}>{children}</div>
         </>

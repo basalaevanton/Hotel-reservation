@@ -11,6 +11,12 @@
 	//   justify-content: space-between;
 }
 
+.indexInputs {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
 .reactSelect {
 	width: 400px;
 }

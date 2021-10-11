@@ -14,10 +14,12 @@ import {
   Dropdown,
   Card,
 } from '../componentsUI';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import 'normalize.css';
 import React, { useState } from 'react';
 import { withLayout } from '../layout/Layout';
+import { wrapper } from '../store';
+import { getHotels } from '../store/action-creators/hotels';
 
 const Home: NextPage = () => {
   // rating
@@ -148,3 +150,19 @@ const Home: NextPage = () => {
 };
 
 export default withLayout(Home);
+
+
+
+// получение в стате redux hotels
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(async ({ store }) => {
+    await store.dispatch(getHotels());
+
+    return {
+      props: {
+        hotels: store.getState().hotels.hotels,
+        pagination: store.getState().hotels.hotels,
+        page: '',
+      },
+    };
+  });

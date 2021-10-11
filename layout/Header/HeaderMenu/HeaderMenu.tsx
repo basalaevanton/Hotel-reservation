@@ -21,17 +21,16 @@ export const HeaderMenu = ({
   // const [user, SetUser] = useState();
 
   const user = useAuthListener();
+  const router = useRouter();
+
   const SignOutUser = () => {
-    const router = useRouter();
     const auth = getAuth();
+
     signOut(auth).then(() => {
       // Sign-out successful.
       return router.push('/');
     });
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  useEffect(() => {}, [user]);
 
   return (
     <ul className={cn(className, styles.menu)} {...props}>

@@ -22,18 +22,18 @@ function HotelRoom({ room, ratePlan }: RoomRoot): JSX.Element {
 
   const ratePlans: myRatePlane[] = [];
 
+
   let rate: myRatePlane = { desription: '', roomTypes: {} };
 
-  ratePlan.data.map((plane) =>
-    plane.components.map((el) => {
-      el.includedInRate == true &&
-        ((rate.desription = plane.description),
-        (rate.roomTypes = plane.roomTypes.find(
-          (room) => room.roomTypeId == idRoom
-        )),
-        ratePlans.push(rate),
-        (rate = { desription: '', roomTypes: {} }));
-    })
+  ratePlan.data.map(
+    (plane) => (
+      (rate.desription = plane.description),
+      (rate.roomTypes = plane.roomTypes.find(
+        (room) => room.roomTypeId == idRoom
+      )),
+      ratePlans.push(rate),
+      (rate = { desription: '', roomTypes: {} })
+    )
   );
 
   return <HotelRoomPage room={room} ratePlans={ratePlans} />;

@@ -1,4 +1,4 @@
-import { Htag } from '../../componentsUI';
+import { Button, Htag } from '../../componentsUI';
 import type { GetServerSideProps, NextPage } from 'next';
 import 'normalize.css';
 import React from 'react';
@@ -6,15 +6,33 @@ import { withLayout } from '../../layout/Layout';
 import { HotelsRoot } from '../../interfaces/hotels.interface';
 import axios from 'axios';
 import { API } from '../../helpers/api';
-import { HotelsPage } from '../../pageComponents';
+import { SearchPage } from '../../pageComponents';
 import { useTypedSelector } from '../../hooks';
+import { useRouter } from 'next/router';
 
 const Search = ({ hotels, pagination, page }: HotelsRoot): JSX.Element => {
   const totalHotels = pagination.total;
+
+  const router = useRouter();
+
+
   return (
     <div>
-      <Htag tag="h1">Номера, которые мы для вас подобрали</Htag>
-      <HotelsPage hotels={hotels} page={page} totalHotels={totalHotels} />;
+      <div style={{ display: 'flex', gap: '15px' }}>
+        <Htag tag="h1">Отели, которые мы для вас подобрали</Htag>
+        <Button
+          appearance="primary"
+          // router.push('search/' + data.country.code + '?rating=' + data.rating);
+          onClick={() =>
+            router.push(
+              'map/' + router.query.search + '?rating=' + router.query.rating
+            )
+          }
+        >
+          Посмотреть на карте
+        </Button>
+      </div>
+      <SearchPage hotels={hotels} page={page} totalHotels={totalHotels} />;
     </div>
   );
 };
@@ -30,13 +48,13 @@ export const getServerSideProps: GetServerSideProps<HotelsRoot> = async ({
       notFound: true,
     };
   }
-  console.log(query.search);
 
   const start = +page === 1 ? 0 : (+page - 1) * 10;
+
   // страна для поиска
-  
   const { data: hotels, data: pagination } = await axios.get(
-    API.HOST + `?country%5Beq%5D=${query.search}&size=10&offset=${start}`,
+    API.HOST +
+      `?country[eq]=${query.search}&starRating[eq]=${query.rating}&size=10&offset=${start}`,
 
     {
       headers: {

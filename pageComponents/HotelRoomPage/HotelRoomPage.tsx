@@ -22,7 +22,7 @@ export const HotelRoomPage = ({
   room,
   ratePlans,
 }: HotelRoomPageProps): JSX.Element => {
-
+  
 
   return (
     <div className={styles.roomWrapper}>

@@ -15,7 +15,7 @@ export const RoomCard = forwardRef(
     ref: ForwardedRef<HTMLDivElement>
   ): JSX.Element => {
     const router = useRouter();
-    console.log(`${router.asPath}`);
+  
 
     // let hotelImg = 'https://via.placeholder.com/380x240';
     // room.images.map((img) => {

@@ -1,30 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+
 import { IndexFormProps } from './IndexForm.props';
-import { searchIndexForm } from './searchIndexForm.intrerface';
 
 import styles from './IndexForm.module.scss';
-import {
-  Accordion,
-  Button,
-  Card,
-  Dropdown,
-  Htag,
-  Input,
-  Modal,
-  RadioInput,
-  Switch,
-} from '../../componentsUI';
+import { Rating, Button, Card, Htag, Divider } from '../../componentsUI';
 
 import cn from 'classnames';
 
 import { Controller, useForm } from 'react-hook-form';
-
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import MaskedTextInput from 'react-text-mask';
-
-import { useTypedSelector, useActions } from '../../hooks';
 
 import countries from 'i18n-iso-countries';
 import { useRouter } from 'next/router';
@@ -38,20 +21,20 @@ import { countriesData } from '../../helpers/countryData';
 
 export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
   const {
-    register,
     control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
-  const [country, setCountry] = useState(null);
+  const [rating, setRating] = useState<number>(3);
 
   const router = useRouter();
 
   const handleChange = (data: any) => {
+    data.rating = rating;
+
     data.country?.code !== undefined &&
-      router.push('search/' + data.country.code);
+      router.push('search/' + data.country.code + '?rating=' + data.rating);
   };
 
   return (
@@ -63,32 +46,38 @@ export const IndexForm = ({ ...props }: IndexFormProps): JSX.Element => {
         onSubmit={handleSubmit(handleChange)}
         {...props}
       >
-        <section>
-          {/* <label>Выберите страну</label> */}
-          <Controller
-            name="country"
-            control={control}
-            rules={{
-              required: { value: true, message: 'Укажите страну' },
-            }}
-            render={({ field }) => (
-              <ReactSelect
-                {...field}
-                className={styles.reactSelect}
-                options={countriesData}
-                placeholder="Введите страну"
-              />
-            )}
-          />
+        <div className={styles.indexInputs}>
+          <section>
+            {/* <label>Выберите страну</label> */}
+            <Controller
+              name="country"
+              control={control}
+              rules={{
+                required: { value: true, message: 'Укажите страну' },
+              }}
+              render={({ field }) => (
+                <ReactSelect
+                  {...field}
+                  className={styles.reactSelect}
+                  options={countriesData}
+                  placeholder="Введите страну"
+                />
+              )}
+            />
 
-        <span className={styles.errorSearch}>{errors.country?.message}</span>
-        </section>
-
+            <span className={styles.errorSearch}>
+              {errors.country?.message}
+            </span>
+          </section>
+          <Divider />
+          <section style={{ display: 'flex', gap: '20px' }}>
+            <Htag tag="h2">Выберите категорию отеля</Htag>
+            <Rating isEditable rating={rating} setRating={setRating} />
+          </section>
+        </div>
         <Button className={styles.indexBtn} border="primary">
           Найти
         </Button>
-
-
       </form>
     </Card>
   );
