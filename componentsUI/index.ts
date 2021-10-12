@@ -15,3 +15,4 @@ export * from './Dropdown/Dropdown';
 export * from './Modal/Modal';
 export * from './Up/Up';
 export * from './Card/Card';
+export * from './Marker/Marker';

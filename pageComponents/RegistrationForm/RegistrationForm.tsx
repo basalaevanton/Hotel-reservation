@@ -243,8 +243,8 @@ export const RegistrationForm = ({
             {...register('password', {
               required: 'Введите password',
               minLength: {
-                value: 5,
-                message: 'Минимальная длина пароля 5',
+                value: 6,
+                message: 'Минимальная длина пароля 6',
               },
             })}
             error={errors.password}

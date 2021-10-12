@@ -1,5 +1,5 @@
 import { Button, Htag } from '../../componentsUI';
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps,  } from 'next';
 import 'normalize.css';
 import React from 'react';
 import { withLayout } from '../../layout/Layout';
@@ -7,7 +7,7 @@ import { HotelsRoot } from '../../interfaces/hotels.interface';
 import axios from 'axios';
 import { API } from '../../helpers/api';
 import { SearchPage } from '../../pageComponents';
-import { useTypedSelector } from '../../hooks';
+
 import { useRouter } from 'next/router';
 
 const Search = ({ hotels, pagination, page }: HotelsRoot): JSX.Element => {

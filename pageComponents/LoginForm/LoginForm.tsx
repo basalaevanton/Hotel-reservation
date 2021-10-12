@@ -104,6 +104,7 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
           <Input
             placeholder="email"
             type="text"
+            value='admin@admin.ru'
             {...register('email', {
               required: 'Введите Email',
               pattern: {
@@ -117,6 +118,7 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
           <Input
             placeholder="password"
             type="password"
+            value='admin123'
             {...register('password', {
               required: 'Введите password',
               minLength: {

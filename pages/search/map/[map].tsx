@@ -1,26 +1,24 @@
-import { Button, Htag } from '../../../componentsUI';
-import type { GetServerSideProps, NextPage } from 'next';
+import {  Htag, Marker } from '../../../componentsUI';
+import type { GetServerSideProps,  } from 'next';
 import 'normalize.css';
 import React from 'react';
 import { withLayout } from '../../../layout/Layout';
 import { Hotels } from '../../../interfaces/hotels.interface';
 import axios from 'axios';
 import { API } from '../../../helpers/api';
-import { SearchPage } from '../../../pageComponents';
-import { useTypedSelector } from '../../../hooks';
+
 import { useRouter } from 'next/router';
 
 import GoogleMapReact from 'google-map-react';
-import Marker from '../../../componentsUI/Marker/Marker';
 
 const Search = ({ hotels, pagination }: Hotels): JSX.Element => {
-  const totalHotels = pagination.total;
+
 
   const router = useRouter();
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <Htag tag='h2'> Отели на карте </Htag>
+      <Htag tag="h2"> Отели на карте </Htag>
       <GoogleMapReact
         defaultZoom={7}
         defaultCenter={{
