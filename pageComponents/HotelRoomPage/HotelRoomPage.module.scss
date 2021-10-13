@@ -31,6 +31,13 @@
 
 .roomInfo {
 	display: flex;
+	flex-direction: column;
 
 	margin-top: 65px;
+}
+
+.roomRate {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }

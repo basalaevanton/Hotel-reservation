@@ -20,8 +20,9 @@ function HotelRoom({ room, ratePlan }: RoomRoot): JSX.Element {
   const router = useRouter();
   const idRoom = router.asPath.substring(router.asPath.lastIndexOf('/') + 1);
 
-  const ratePlans: myRatePlane[] = [];
+  
 
+  const ratePlans: myRatePlane[] = [];
 
   let rate: myRatePlane = { desription: '', roomTypes: {} };
 

@@ -15,6 +15,14 @@ export const closeModalLogin = (): UiAction => {
   return { type: UiActionTypes.CLOSE_MODAL_LOG };
 };
 
+export const openModalBooking = (): UiAction => {
+  return { type: UiActionTypes.OPEN_MODAL_BOOK };
+};
+
+export const closeModalBooking = (): UiAction => {
+  return { type: UiActionTypes.CLOSE_MODAL_BOOK };
+};
+
 // export const closeModal = (payload:number): UiAction => {
 //     return { type: UiActionTypes.CLOSE_MODAL, payload };
 //   };

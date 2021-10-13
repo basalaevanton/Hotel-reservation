@@ -29,11 +29,9 @@ import {
 import db from '../../lib/firebase';
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  fetchSignInMethodsForEmail,
+
   signInWithEmailAndPassword,
-  signOut,
+
 } from 'firebase/auth';
 import { useTypedSelector, useActions } from '../../hooks';
 
@@ -79,6 +77,7 @@ export const LoginForm = ({ ...props }: LoginFormProps): JSX.Element => {
 
   return (
     <div className={styles.loginForm}>
+      
       <Modal showModal={showModalLogin} closeModal={() => closeModalLogin()}>
         {isSuccess || error}
         {isSuccess && (

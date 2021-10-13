@@ -6,7 +6,12 @@ import ArrowIcon from './arrow.svg';
 import { ButtonIcon, Htag } from '..';
 
 import cn from 'classnames';
-import React, { useState, KeyboardEvent, useLayoutEffect, useEffect } from 'react';
+import React, {
+  useState,
+  KeyboardEvent,
+  useLayoutEffect,
+  useEffect,
+} from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useActions, useTypedSelector } from '../../hooks';
@@ -18,8 +23,8 @@ export const Modal = ({
   className,
   ...props
 }: ModalProps): JSX.Element => {
-  const { showModalRegistration } = useTypedSelector((state) => state.ui);
-  
+  const { showModalRegistration, showModalLogin, showModalBooking } =
+    useTypedSelector((state) => state.ui);
 
   const variantsModalBox = {
     visible: {
@@ -42,7 +47,7 @@ export const Modal = ({
 
   useEffect(() => {
     const body = document.querySelector('body');
-    if (showModalRegistration) {
+    if (showModalRegistration || showModalLogin || showModalBooking) {
       window.addEventListener('click', (e: MouseEvent) => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         if ((e.target as HTMLDivElement).id === 'modalDialog') {

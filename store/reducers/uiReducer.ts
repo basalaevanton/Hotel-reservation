@@ -1,12 +1,9 @@
-import {
-  UiState,
-  UiAction,
-  UiActionTypes,
-} from '../types/ui.interface';
+import { UiState, UiAction, UiActionTypes } from '../types/ui.interface';
 
 const initialState: UiState = {
   showModalRegistration: false,
   showModalLogin: false,
+  showModalBooking: false,
 };
 
 export const uiReducer = (state = initialState, action: UiAction): UiState => {
@@ -19,6 +16,10 @@ export const uiReducer = (state = initialState, action: UiAction): UiState => {
       return { ...state, showModalLogin: true };
     case UiActionTypes.CLOSE_MODAL_LOG:
       return { ...state, showModalLogin: false };
+    case UiActionTypes.OPEN_MODAL_BOOK:
+      return { ...state, showModalBooking: true };
+    case UiActionTypes.CLOSE_MODAL_BOOK:
+      return { ...state, showModalBooking: false };
     default:
       return state;
   }

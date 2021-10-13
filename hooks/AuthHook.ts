@@ -1,21 +1,16 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect,  } from 'react';
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  fetchSignInMethodsForEmail,
-  signInWithEmailAndPassword,
+ 
   onAuthStateChanged,
 } from 'firebase/auth';
 
-import { doc, getDoc, getDocFromCache } from 'firebase/firestore';
-import db from '../lib/firebase';
-import { useActions } from '.';
 
 export function useAuthListener() {
+  
   const [user, setUser] = useState<RootObject | undefined>();
 
-  // const { getUser } = useActions();
+
 
   useEffect(() => {
     const auth = getAuth();

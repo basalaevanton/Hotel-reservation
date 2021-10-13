@@ -1,13 +1,13 @@
 import 'normalize.css';
 import React from 'react';
-import { withLayout } from '../layout/Layout';
+import { withLayout } from '../../layout/Layout';
 
 import axios from 'axios';
-import { HotelsRoot } from '../interfaces/hotels.interface';
+import { HotelsRoot } from '../../interfaces/hotels.interface';
 import { GetServerSideProps } from 'next';
 
-import { HotelsPage } from '../pageComponents';
-import { API } from '../helpers/api';
+import { HotelsPage } from '../../pageComponents';
+import { API } from '../../helpers/api';
 
 function Hotels({ hotels, pagination, page }: HotelsRoot): JSX.Element {
   const totalHotels = pagination.total;
